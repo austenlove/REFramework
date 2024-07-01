@@ -406,7 +406,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <ui:LogMessage sap2010:Annotation.AnnotationText="본문 확인용 로그" DisplayName="본문 | Log Message" sap:VirtualizedContainerService.HintSize="479,195" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(strBody, Today.ToString(&quot;yyyyMMdd&quot;), in_Config(&quot;과제명&quot;).ToString)]">
+      <ui:LogMessage sap2010:Annotation.AnnotationText="본문 확인용 로그" DisplayName="본문 | Log Message" sap:VirtualizedContainerService.HintSize="479,195" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(strBody, Today.ToString(&quot;yyyyMMdd&quot;), in_Config(&quot;과제명&quot;).ToString, &quot;Result&quot;)]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -416,7 +416,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
     </Sequence>
-    <ui:SendMail Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Bcc="[in_Config(&quot;CCTo&quot;).ToString]" Body="[String.Format(strBody, Today.ToString(&quot;yyyyMMdd&quot;), in_Config(&quot;과제명&quot;).ToString)]" DisplayName="Send SMTP Mail Message" Email="[strID]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="541,175" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="Auto" SecurePassword="[sstrPW]" Server="smtp.gmail.com" Subject="[String.Format(strSubject, in_Config(&quot;부서코드&quot;).ToString, in_Config(&quot;과제명&quot;).ToString, &quot;Result&quot;)]" To="[in_Config(&quot;MailTo&quot;).ToString]">
+    <ui:SendMail Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Bcc="[in_Config(&quot;CCTo&quot;).ToString]" Body="[String.Format(strBody, Today.ToString(&quot;yyyyMMdd&quot;), in_Config(&quot;과제명&quot;).ToString)]" DisplayName="Send SMTP Mail Message" Email="[strID]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="541,175" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="Auto" SecurePassword="[sstrPW]" Server="smtp.gmail.com" Subject="[String.Format(strSubject, in_Config(&quot;부서코드&quot;).ToString, in_Config(&quot;과제명&quot;).ToString)]" To="[in_Config(&quot;MailTo&quot;).ToString]">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">[in_Config("결과 폴더").ToString + in_Config("결과양식명").ToString]</InArgument>
