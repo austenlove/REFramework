@@ -1,15 +1,15 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_arr검색어" Type="InArgument(s:String[])" />
     <x:Property Name="io_intSuccessCnt" Type="InOutArgument(x:Int32)" />
     <x:Property Name="io_intFailCnt" Type="InOutArgument(x:Int32)" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1016,3186</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1057,3472</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -128,7 +128,7 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="766,3403" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="766,3407" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -136,7 +136,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="704,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;❤️❤start processing❤️❤️&quot;]" />
-    <Sequence sap2010:Annotation.AnnotationText="[Business Exception]&#xA;1. 추출한 데이터가 0인 경우" DisplayName="Process Data &amp; Write Range | Sequence" sap:VirtualizedContainerService.HintSize="704,2906" sap2010:WorkflowViewState.IdRef="Sequence_39">
+    <Sequence sap2010:Annotation.AnnotationText="[Business Exception]&#xA;1. 추출한 데이터가 0인 경우" DisplayName="Process Data &amp; Write Range | Sequence" sap:VirtualizedContainerService.HintSize="704,2878" sap2010:WorkflowViewState.IdRef="Sequence_39">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -144,13 +144,13 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 네이버쇼핑" sap:VirtualizedContainerService.HintSize="642,2744" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="0c7e472c-dfa0-45ac-b690-f5ff7a1e0f0c" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 네이버쇼핑" sap:VirtualizedContainerService.HintSize="642,2748" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="0c7e472c-dfa0-45ac-b690-f5ff7a1e0f0c" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="608,2504" sap2010:WorkflowViewState.IdRef="Sequence_34">
+            <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="608,2508" sap2010:WorkflowViewState.IdRef="Sequence_34">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="dt원본" />
                 <Variable x:TypeArguments="sd:DataTable" Name="dt가공" />
@@ -218,7 +218,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NExtractData>
-              <Sequence sap2010:Annotation.AnnotationText="데이터 추출 시 예외 처리(BusinessRuleException 발생)&#xD;&#xA;&#xD;&#xA;- 필수 필드가 비어 있는 경우&#xD;&#xA;- 데이터 형식이 올바르지 않은 경우&#xD;&#xA;- 특정 비즈니스 조건을 만족하지 않는 경우" sap:VirtualizedContainerService.HintSize="546,765" sap2010:WorkflowViewState.IdRef="Sequence_54">
+              <Sequence sap2010:Annotation.AnnotationText="데이터 추출 시 예외 처리(BusinessRuleException 발생)&#xA;&#xA;- 필수 필드가 비어 있는 경우&#xA;- 데이터 형식이 올바르지 않은 경우&#xA;- 특정 비즈니스 조건을 만족하지 않는 경우" sap:VirtualizedContainerService.HintSize="546,769" sap2010:WorkflowViewState.IdRef="Sequence_54">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Int32" Name="idx" />
                 </Sequence.Variables>
@@ -306,7 +306,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ForEachRow>
-                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[dt원본]" DisplayName="데이터타입 유효성 검사 | For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[dt원본]" DisplayName="데이터타입 유효성 검사 | For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="450,50" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                   <ui:ForEachRow.Body>
                     <ActivityAction x:TypeArguments="sd:DataRow">
                       <ActivityAction.Argument>
