@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1162,2601</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1016,2601</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_01_SMTP_메일발송_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -49,6 +49,8 @@
       <x:String>UiPath.DataTableUtilities</x:String>
       <x:String>Microsoft.Office.Interop.Word</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -118,6 +120,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="_01_SMTP_메일발송" sap:VirtualizedContainerService.HintSize="750,2536" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -316,7 +319,9 @@
     <ui:SendMail Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Bcc="[in_Config(&quot;CCTo&quot;).ToString]" Body="[String.Format(strBody, DateTime.Now.ToString(&quot;yyyyMMdd&quot;), in_Config(&quot;과제명&quot;).ToString, &quot;결과시트 링크&quot;, intTotalCnt, intSuccessCnt, intFailCnt, strMemo)]" DisplayName="Send SMTP Mail Message" Email="[in_strID]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="688,175" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrPW]" Server="smtp.gmail.com" Subject="[String.Format(strSubject, in_Config(&quot;부서코드&quot;).ToString, in_Config(&quot;과제명&quot;).ToString, strResult)]" To="[in_Config(&quot;MailTo&quot;).ToString]">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-          <InArgument x:TypeArguments="x:String">[in_Config("결과 폴더").ToString + in_Config("결과양식명").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;결과 폴더&quot;).ToString + in_Config(&quot;결과양식명&quot;).ToString" />
+          </InArgument>
         </scg:List>
       </ui:SendMail.Files>
     </ui:SendMail>
