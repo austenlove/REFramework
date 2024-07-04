@@ -2,18 +2,18 @@
   <x:Members>
     <x:Property Name="in_str저장경로_요청" Type="InArgument(x:String)" />
     <x:Property Name="in_arr항목" Type="InArgument(s:String[])" />
-    <x:Property Name="io_dtExtracted" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_dtBest" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="in_strResultFile" Type="InArgument(x:String)" />
     <x:Property Name="in_strTempFile" Type="InArgument(x:String)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="io_TransactionItem" Type="InOutArgument(sd:DataRow)" />
     <x:Property Name="in_str저장경로_결과" Type="InArgument(x:String)" />
+    <x:Property Name="in_dtExtracted" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1052,1813</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,964</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_01_GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -65,6 +65,7 @@
       <x:String>UiPath.Excel.Model</x:String>
       <x:String>UiPath.Activities.System.Arrays</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -136,7 +137,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_02_DataProcess" sap:VirtualizedContainerService.HintSize="512,1748" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_02_DataProcess" sap:VirtualizedContainerService.HintSize="512,899" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt추가" />
@@ -147,107 +148,131 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[current항목]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[io_TransactionItem(0).ToString]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <TryCatch sap2010:Annotation.AnnotationText="ExtractDataTable&#xA;데이터 추출 실패 시 BusinessRuleException 발생" DisplayName="데이터 수집 | Try Catch" sap:VirtualizedContainerService.HintSize="450,396" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <Sequence DisplayName="데이터 수집 | Sequence" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_27">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="512,1257" sap2010:WorkflowViewState.IdRef="Sequence_13">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 예스24 티켓" sap:VirtualizedContainerService.HintSize="450,1169" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="b53759e6-d8cb-42aa-b8e3-01e221eb0c5e" Version="V2" WindowResize="Maximize">
-            <uix:NApplicationCard.Body>
-              <ActivityAction x:TypeArguments="x:Object">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,929" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'arr항목'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b53759e6-d8cb-42aa-b8e3-01e221eb0c5e" Version="V3">
-                    <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="http://ticket.yes24.com/New/Rank/Ranking.aspx" DesignTimeRectangle="531, 476, 171, 68" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' tag='A' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;a' /&gt;&quot;, current항목)]" FuzzySelectorArgument="&lt;webctrl aaname='콘서트' tag='A' type='' class='' check:text='콘서트' /&gt;" Guid="fad606a8-43d2-47e8-9612-6040e35f17cb" InformativeScreenshot="238d3191b33eb83b61759be29747c752.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='예스24 티켓' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                    </uix:NClick.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </uix:NClick>
-                  <uix:NExtractData sap2010:Annotation.AnnotationText="[ExtractDataTable]&#xA;0 : 제목&#xA;1 : 날짜_장소" AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='제목'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column9' Name='날짜_장소'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column9' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='p' idx='2' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="354,246" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="b53759e6-d8cb-42aa-b8e3-01e221eb0c5e" Version="V3">
-                    <uix:NExtractData.Target>
-                      <uix:TargetAnchorable BrowserURL="http://ticket.yes24.com/New/Rank/Ranking.aspx" DesignTimeRectangle="360, 467, 1200, 682" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='rank-best' tag='DIV' /&gt;" Guid="f9557e49-711f-4732-af65-17a9ba445f85" InformativeScreenshot="c65df6676fc303011bc7d03465122888.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='예스24 티켓' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                    </uix:NExtractData.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </uix:NExtractData>
-                  <uix:NExtractData sap2010:Annotation.AnnotationText="[dt추가]&#xA;0 : 제목&#xA;1 : 날짜_장소" AppendResults="False" ContinueOnError="True" DataTable="[dt추가]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='제목'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='날짜_장소'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='p' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="354,246" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="b53759e6-d8cb-42aa-b8e3-01e221eb0c5e" Version="V3">
-                    <uix:NExtractData.Target>
-                      <uix:TargetAnchorable BrowserURL="http://ticket.yes24.com/New/Rank/Ranking.aspx" DesignTimeRectangle="360, 300, 1200, 7193" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='rank-list' tag='DIV' /&gt;" Guid="01a3a841-c8d3-4bac-95d9-8b462a4be047" InformativeScreenshot="a4154593d81980ee915da77d68b03553.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='예스24 티켓' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                    </uix:NExtractData.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </uix:NExtractData>
-                  <ui:MergeDataTable Destination="[ExtractDataTable]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="354,158" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[dt추가]" />
-                </Sequence>
-              </ActivityAction>
-            </uix:NApplicationCard.Body>
-            <uix:NApplicationCard.TargetApp>
-              <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAU6SURBVGhDxZnNSy5VHMeft+u91zTBEkKslOIqYWCmt7sQ3LQQVHShgYtEN+LCFwQjETfWQkUQMTHLP0BUCFFzIbRIQVRcuBGihRD4gkqSLyiZ+ut8j2ecZ/T3zMyZZ7z3Cx94PPOdc37jnLffmYBPyhTUC34W/C7YFZwJSIHfKMM1eODFPW9U6YJvBZsCI1BdcC/qQF2vTR8JfhJcCrigvIC6UCfqfjQ9F3wn+FfABeEHqBttoC1f9angDwHX6GOAttCmL6oVXAi4hh4TtIm249I3Aq5yVzwLBei5ILoMf6M8uswBxOBJcQWfEg7Qrzlh+v79kKX8x6wQ/fIibClzgfZD4NVxFbki7UmA/swLE72K0P7nEXqZFJTlP2SG6OJlhK5Fed8H1gdzgevuhMETV5//+FmQ/vsiIh/g74IIPQkGKCjKZ7JvHwp89c7tQ2mAmBwHNqavuGeb5vdCd4Gu5IYp82mQXoiH+uuz27J/CiP09bvaDwAQm+0UizmYu1GLV6LLHIr//IHoPtH/6d8+CdOpCH5ejI1ovyaIkRVWQV8WqbfFAP4yJUgfPg1QkvhtlON3fVqI3tKbhe6DGNkVG0s5d0NMwuEw1dXVPSA9PZ31G2RlZbH3JScns34GxGoRNlPae5uCggLilJuby/oNent7ldPU1dUVJSUlsX4GxGrZAGJHyBltaW9vV82bOjo6omDQfoCurq4qt6mVlRXWawNivpOnLfHc3Jxq3tT09DTrNUhJSaHr62vlNtXX18f6bUDMUkgsOIMt6P/Hx8eqeVN4K5zfoKysTDmtQjnnd0AmRciOuIu2xOr/hYWFrN9gcHBQOU3hjeDNcH4HELtM8biLtnD9/+zsjCKRCOs32NjYUG5T6+vrrNcFiF3mqdxFW7j+v7CwwHoN0tLSlNOqgYEB1u8CxC6Tbe5iTEKhENv/u7q6WL9BTU2NclpVWVnJ+l2A2C2nB67IyclRTVtVXFzM+g2mpqaU09TNzQ2lpqayfhcgdvaCLdXV1ap5UwgkMTGR9QOszpeXl8ptCmOC82vAFtrS0tKimje1s7PDeg3GxsaU06rh4WHWr4F+F+rs7FTNmzo4OGC9oKKiQr4hTlVVVew9LpFdSHsQNzQ0qOatys/Pf+Ctra2li4sL5XgozEz379FADmLtabSoqEg1b9X29jY1NTXJ/yrWibW1NXWF1+bmJlu/BnIa1V7IsI3Y399XYXjX0NAQW78GciHztJVobW1VYThraWlJ/bKqpKSErVsDuZXwtJnDlnl0dFSFwmt3d5fKy8tpYmJClZja29uTb5KrW4O7E27PJ8ylpaVyW4E8ADo9PaXFxUVqbm6W60J2drZMVu7LadV2wd12GvKU0DiRkJDAdp/Dw0Ovu89oLAmNp5TSDuS3SG441dfXs/do8CClhLST+u7ubsrLy5ObO6MsIyOD2tra5MrMaXx83FKHRx4k9ZDWsUr0hg79fmtry3FqXV5ett0vuSTmsQrk+mCrsbFRheVO8/PzfgQPYh5sQa6PFicnJ1Vo9jo/P6eOjg4/pkzgeLQIOR7uYg3ATGKnk5MTGhkZcTzk0sDV4a4h2+N1dIWenh6anZ2V+Sz29Nj3zMzMUH9/v8ywfOou0Wh/rYnrA4fPvJmvND7hOXhDeHVxffDwCNrU7jaxhMET94cPDdCW6wHrVpi+MAf78g0hBqgbbThOlfEIqyCWcj/3TqgLdcZcYR9D2ExhR+h5Ky7AvajjwcbsdQuJBbIjpHjIU5FsR5924DfKcA0eeO+SEe8KBP4HO9Oni9MnRwcAAAAASUVORK5CYII=" InformativeScreenshot="9935a9503a0e7f084812a57a5856d044.jpg" Selector="&lt;html app='chrome.exe' url='http://ticket.yes24.com/New/Rank/Ranking.aspx' /&gt;" Title="예스24 티켓" Url="[in_Config(&quot;Url&quot;).ToString]" />
-            </uix:NApplicationCard.TargetApp>
+      <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[current항목]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[io_TransactionItem(0).ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <TryCatch sap2010:Annotation.AnnotationText="ExtractDataTable&#xA;데이터 추출 실패 시 BusinessRuleException 발생" DisplayName="데이터 수집 | Try Catch" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch.Try>
+          <Sequence sap:VirtualizedContainerService.HintSize="512,1293" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </uix:NApplicationCard>
-        </Sequence>
-      </TryCatch.Try>
-      <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,160" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ActivityAction x:TypeArguments="s:Exception">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-            </ActivityAction.Argument>
-            <Throw DisplayName="Throw ★ 예외처리" Exception="[new BusinessRuleException(&quot;⚠️&quot; + current항목.ToString + &quot; 데이터 테이블 추출 및 생성에 오류가 있습니다. &quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
-          </ActivityAction>
-        </Catch>
-      </TryCatch.Catches>
-    </TryCatch>
-    <Sequence DisplayName="Data Process | Sequence" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_23">
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 예스24 티켓" sap:VirtualizedContainerService.HintSize="450,1205" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="b53759e6-d8cb-42aa-b8e3-01e221eb0c5e" Version="V2" WindowResize="Maximize">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,965" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'arr항목'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b53759e6-d8cb-42aa-b8e3-01e221eb0c5e" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="http://ticket.yes24.com/New/Rank/Ranking.aspx" DesignTimeRectangle="531, 476, 171, 68" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' tag='A' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;a' /&gt;&quot;, current항목)]" FuzzySelectorArgument="&lt;webctrl aaname='콘서트' tag='A' type='' class='' check:text='콘서트' /&gt;" Guid="fad606a8-43d2-47e8-9612-6040e35f17cb" InformativeScreenshot="1308b94248d10f9f97d4890db24085ec.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='예스24 티켓' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="338, 445, 387, 121" Guid="070ca117-fe30-41e0-997d-37265a428e13" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYMAAAB5CAYAAADbGk3ZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS4SURBVHhe7dxNTttqGIbhs6DOuq6yg7MCBqgLQaIjttBREQugc9SMkCoqhPjO59iOQ8BODLw9ep3rkh6pgaSD/vi2nbT/FACOnhgAIAYAiAEAlRgAIAYAiAEAlRgAIAYAiAEAlRgAIAYAiAEAlRgAIAYAiAEAlRgAIAYAiAEAlRgAIAYAiAEAlRgAIAYAiAEAlRgAIAYAiAEAlRgAIAYAiAEAVVgMVv9+Mkuxm5sbs6OfGNjRr/mLABlE/lkVAzv6iQFZiIFZ4MSALMTALHBiQBZiYBY4MSALMTALnBiQhRiYBU4MyEIMzAInBmQhBmaBEwOyEAOzwIkBWYiBWeDEgCzEwCxwYkAWYmAWODEgCzEwC5wYkIUYmAVODMhCDMwCJwZkIQZmgRMDshADs8CJAVmIgVngxIAsxMAscGJAFmJgFjgxIAsxMAucGJCFGJgFTgzIQgzMAicGZCEGZoETA7IQA7PAiQFZiMESd/m9PHW/Vruefp52zzstD/fNV+7Kw+XO60f251f//PPy2Pzw/nv5/crzbJgY9Fbl4svn8vnznn297p4/R/tzn3xbdY95CzE4inUH72cH/pEY7IZk64AvBvMnBoe7/joVgy4mr35/JAa3F+XkteA821l5S36WSAyOYT+63+RnB29XBn9jYnC4qBicXXWPmSQGi19/VdDdInpxC2krBiO3l/pbS2Iwf2LQOegsfepWz9StIDH4CGKw6PVn/43dK4D9Vwbtwb+Uxx/bj8VgzsTgUNflbCoGkwf2d9wm+nJRX01DDBa74Yqg3N+V9oz/pvzZfH9fDPrX35SHn3frH7XEYM7EYMTVWT0Yn5SL2+5xF4PRs/j18+vBu79N9MqB3pXB+4jBAtef0a/9Om+/vnULqD3Tn47B7z4A/evrXBnMnxiM2I3B7WriDL0/878YCYbbRB9BDJa2etB/rFcCjf72zvb32iA0B/SJGPRvOK8NVxNiMH9i0J7xb5/BH7bhUz6rbyfD4xdXFA0x+AhicLQbicEmGDUCz+IhBm+ZGLxTd3to+0C//tTRs4+EvuM9gzqxaInB0e5lDDa3hka+9rR5vhgcOjF4h933CTbag/9wIB+JAbOIwZLXn9kfdNA+r3FoDvxDCDa7PF2/3pXB/InBYPrfEeza8+mi6vrquqxum++LwUcQgyVvVgz2TwzmTwwG82Iwx04M+iuKmTv220VisOSJwf8+MRj8tRjwJmKw5G3eAJ724lNHIxOD+RODQfvG77695f8KEoOPIAZmgRMDshADs8CJAVmIgVngxIAsxMAscGJAFmJgFjgxIAsxMAucGJCFGJgFTgzIQgzMAicGZCEGZoETA7IQA7PAiQFZiIFZ4MSALMTALHBiQBZiYBY4MSALMTALnBiQhRiYBU4MyEIMzAInBmQhBmaBEwOyEAOzwIkBWYiBWeDEgCzEwCxwYkAWYmAWODEgCzEwC5wYkIUYmAVODMhCDMwCJwZkIQZmgRMDshADs8CJAVmIgVngmr9gZse+sBgAkIcYACAGAIgBAJUYACAGAIgBAJUYACAGAIgBAJUYACAGAIgBAJUYACAGAIgBAJUYACAGAIgBAJUYACAGAIgBAKWU/wDTEPEahVGRzAAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="확인 대상" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <uix:NExtractData sap2010:Annotation.AnnotationText="[ExtractDataTable]&#xA;0 : 제목&#xA;1 : 날짜_장소" AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='제목'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column9' Name='날짜_장소'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column9' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='p' idx='2' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="354,246" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="b53759e6-d8cb-42aa-b8e3-01e221eb0c5e" Version="V3">
+                      <uix:NExtractData.Target>
+                        <uix:TargetAnchorable BrowserURL="http://ticket.yes24.com/New/Rank/Ranking.aspx" DesignTimeRectangle="360, 467, 1200, 682" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='rank-best' tag='DIV' /&gt;" Guid="f9557e49-711f-4732-af65-17a9ba445f85" InformativeScreenshot="c65df6676fc303011bc7d03465122888.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='예스24 티켓' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                      </uix:NExtractData.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NExtractData>
+                    <uix:NExtractData sap2010:Annotation.AnnotationText="[dt추가]&#xA;0 : 제목&#xA;1 : 날짜_장소" AppendResults="False" ContinueOnError="True" DataTable="[dt추가]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='제목'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='날짜_장소'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='p' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="354,246" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="b53759e6-d8cb-42aa-b8e3-01e221eb0c5e" Version="V3">
+                      <uix:NExtractData.Target>
+                        <uix:TargetAnchorable BrowserURL="http://ticket.yes24.com/New/Rank/Ranking.aspx" DesignTimeRectangle="360, 300, 1200, 7193" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='rank-list' tag='DIV' /&gt;" Guid="01a3a841-c8d3-4bac-95d9-8b462a4be047" InformativeScreenshot="a4154593d81980ee915da77d68b03553.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='예스24 티켓' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                      </uix:NExtractData.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NExtractData>
+                    <ui:MergeDataTable Destination="[ExtractDataTable]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="354,158" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[dt추가]" />
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAU6SURBVGhDxZnNSy5VHMeft+u91zTBEkKslOIqYWCmt7sQ3LQQVHShgYtEN+LCFwQjETfWQkUQMTHLP0BUCFFzIbRIQVRcuBGihRD4gkqSLyiZ+ut8j2ecZ/T3zMyZZ7z3Cx94PPOdc37jnLffmYBPyhTUC34W/C7YFZwJSIHfKMM1eODFPW9U6YJvBZsCI1BdcC/qQF2vTR8JfhJcCrigvIC6UCfqfjQ9F3wn+FfABeEHqBttoC1f9angDwHX6GOAttCmL6oVXAi4hh4TtIm249I3Aq5yVzwLBei5ILoMf6M8uswBxOBJcQWfEg7Qrzlh+v79kKX8x6wQ/fIibClzgfZD4NVxFbki7UmA/swLE72K0P7nEXqZFJTlP2SG6OJlhK5Fed8H1gdzgevuhMETV5//+FmQ/vsiIh/g74IIPQkGKCjKZ7JvHwp89c7tQ2mAmBwHNqavuGeb5vdCd4Gu5IYp82mQXoiH+uuz27J/CiP09bvaDwAQm+0UizmYu1GLV6LLHIr//IHoPtH/6d8+CdOpCH5ejI1ovyaIkRVWQV8WqbfFAP4yJUgfPg1QkvhtlON3fVqI3tKbhe6DGNkVG0s5d0NMwuEw1dXVPSA9PZ31G2RlZbH3JScns34GxGoRNlPae5uCggLilJuby/oNent7ldPU1dUVJSUlsX4GxGrZAGJHyBltaW9vV82bOjo6omDQfoCurq4qt6mVlRXWawNivpOnLfHc3Jxq3tT09DTrNUhJSaHr62vlNtXX18f6bUDMUkgsOIMt6P/Hx8eqeVN4K5zfoKysTDmtQjnnd0AmRciOuIu2xOr/hYWFrN9gcHBQOU3hjeDNcH4HELtM8biLtnD9/+zsjCKRCOs32NjYUG5T6+vrrNcFiF3mqdxFW7j+v7CwwHoN0tLSlNOqgYEB1u8CxC6Tbe5iTEKhENv/u7q6WL9BTU2NclpVWVnJ+l2A2C2nB67IyclRTVtVXFzM+g2mpqaU09TNzQ2lpqayfhcgdvaCLdXV1ap5UwgkMTGR9QOszpeXl8ptCmOC82vAFtrS0tKimje1s7PDeg3GxsaU06rh4WHWr4F+F+rs7FTNmzo4OGC9oKKiQr4hTlVVVew9LpFdSHsQNzQ0qOatys/Pf+Ctra2li4sL5XgozEz379FADmLtabSoqEg1b9X29jY1NTXJ/yrWibW1NXWF1+bmJlu/BnIa1V7IsI3Y399XYXjX0NAQW78GciHztJVobW1VYThraWlJ/bKqpKSErVsDuZXwtJnDlnl0dFSFwmt3d5fKy8tpYmJClZja29uTb5KrW4O7E27PJ8ylpaVyW4E8ADo9PaXFxUVqbm6W60J2drZMVu7LadV2wd12GvKU0DiRkJDAdp/Dw0Ovu89oLAmNp5TSDuS3SG441dfXs/do8CClhLST+u7ubsrLy5ObO6MsIyOD2tra5MrMaXx83FKHRx4k9ZDWsUr0hg79fmtry3FqXV5ett0vuSTmsQrk+mCrsbFRheVO8/PzfgQPYh5sQa6PFicnJ1Vo9jo/P6eOjg4/pkzgeLQIOR7uYg3ATGKnk5MTGhkZcTzk0sDV4a4h2+N1dIWenh6anZ2V+Sz29Nj3zMzMUH9/v8ywfOou0Wh/rYnrA4fPvJmvND7hOXhDeHVxffDwCNrU7jaxhMET94cPDdCW6wHrVpi+MAf78g0hBqgbbThOlfEIqyCWcj/3TqgLdcZcYR9D2ExhR+h5Ky7AvajjwcbsdQuJBbIjpHjIU5FsR5924DfKcA0eeO+SEe8KBP4HO9Oni9MnRwcAAAAASUVORK5CYII=" InformativeScreenshot="ddee9f95eff7ccbea14d0b59901310f8.jpg" Selector="&lt;html app='chrome.exe' title='예스24 티켓' /&gt;" Title="예스24 티켓" Url="http://ticket.yes24.com/New/Rank/Ranking.aspx" />
+              </uix:NApplicationCard.TargetApp>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NApplicationCard>
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Throw DisplayName="Throw ★ 예외처리" Exception="[new BusinessRuleException(&quot;⚠️&quot; + current항목.ToString + &quot; 데이터 테이블 추출 및 생성에 오류가 있습니다. &quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+      </TryCatch>
+    </Sequence>
+    <Sequence DisplayName="데이터 가공 | Sequence" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_23">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="idx" />
       </Sequence.Variables>
@@ -369,7 +394,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
-              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{str순위, str제목, str시작일, str종료일, str장소}]" DataTable="[io_dtExtracted]" DisplayName="dtExtract에 완성된 행 추가 | Add Data Row" sap:VirtualizedContainerService.HintSize="479,209" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{str순위, str제목, str시작일, str종료일, str장소}]" DataTable="[in_dtExtracted]" DisplayName="dtExtract에 완성된 행 추가 | Add Data Row" sap:VirtualizedContainerService.HintSize="479,209" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -388,7 +413,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="데이터 추출 시 예외 처리(BusinessRuleException 발생)&#xA;&#xA;- 필수 필드가 비어 있는 경우&#xA;- 데이터 형식이 올바르지 않은 경우&#xA;- 특정 비즈니스 조건을 만족하지 않는 경우" DisplayName="유효성 검증 | Sequence" sap:VirtualizedContainerService.HintSize="450,312" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence sap2010:Annotation.AnnotationText="dtExtracted 유효성 검증 (BusinessRuleException 발생)&#xA;&#xA;- 필수 필드가 비어 있는 경우&#xA;- 데이터 형식이 올바르지 않은 경우&#xA;- 특정 비즈니스 조건을 만족하지 않는 경우" DisplayName="유효성 검증 | Sequence" sap:VirtualizedContainerService.HintSize="450,312" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="idx" />
       </Sequence.Variables>
@@ -399,7 +424,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[io_dtExtracted]" DisplayName="필드 유효성 검사 | For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,57" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[in_dtExtracted]" DisplayName="필드 유효성 검사 | For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,57" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
@@ -451,13 +476,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[io_dtExtracted]" DisplayName="데이터 타입 유효성 검사 | For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[in_dtExtracted]" DisplayName="데이터 타입 유효성 검사 | For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="512,1179" sap2010:WorkflowViewState.IdRef="Sequence_22">
+            <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,815" sap2010:WorkflowViewState.IdRef="Sequence_22">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="bool시작일" />
                 <Variable x:TypeArguments="x:Boolean" Name="bool종료일" />
@@ -467,7 +492,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:IsMatch sap2010:Annotation.AnnotationText="bool시작일" DisplayName="Is Text Matching" sap:VirtualizedContainerService.HintSize="450,123" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[CurrentRow(&quot;시작일&quot;).ToString]" IsBuilderTabModified="False" Pattern="^\d{4}년\d{2}월\d{2}일$" RegexOption="IgnoreCase, Compiled" Result="[bool시작일]">
+              <ui:IsMatch sap2010:Annotation.AnnotationText="bool시작일" DisplayName="Is Text Matching" sap:VirtualizedContainerService.HintSize="354,123" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[CurrentRow(&quot;시작일&quot;).ToString]" IsBuilderTabModified="False" Pattern="^\d{4}년\d{2}월\d{2}일$" RegexOption="IgnoreCase, Compiled" Result="[bool시작일]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -476,7 +501,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:IsMatch>
-              <If sap2010:Annotation.AnnotationText="시작일 데이터 형식이 &quot;yyyy년MM월dd일&quot; 인지 검증" Condition="[bool시작일]" DisplayName="시작일 형식 검사 | If" sap:VirtualizedContainerService.HintSize="450,427" sap2010:WorkflowViewState.IdRef="If_3">
+              <If sap2010:Annotation.AnnotationText="시작일 데이터 형식이 &quot;yyyy년MM월dd일&quot; 인지 검증" Condition="[bool시작일]" DisplayName="시작일 형식 검사 | If" sap:VirtualizedContainerService.HintSize="354,245" sap2010:WorkflowViewState.IdRef="If_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -505,14 +530,14 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <ui:IsMatch sap2010:Annotation.AnnotationText="bool종료일" DisplayName="Is Text Matching" sap:VirtualizedContainerService.HintSize="450,123" sap2010:WorkflowViewState.IdRef="IsMatch_2" Input="[CurrentRow(&quot;종료일&quot;).ToString]" IsBuilderTabModified="False" Pattern="^\d{4}년\d{2}월\d{2}일$" RegexOption="IgnoreCase, Compiled" Result="[bool종료일]">
+              <ui:IsMatch sap2010:Annotation.AnnotationText="bool종료일" DisplayName="Is Text Matching" sap:VirtualizedContainerService.HintSize="354,123" sap2010:WorkflowViewState.IdRef="IsMatch_2" Input="[CurrentRow(&quot;종료일&quot;).ToString]" IsBuilderTabModified="False" Pattern="^\d{4}년\d{2}월\d{2}일$" RegexOption="IgnoreCase, Compiled" Result="[bool종료일]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:IsMatch>
-              <If sap2010:Annotation.AnnotationText="종료일 데이터 형식이 &quot;yyyy년MM월dd일&quot; 인지 검증" Condition="[bool종료일]" DisplayName="종료일 형식 검사 | If" sap:VirtualizedContainerService.HintSize="450,418" sap2010:WorkflowViewState.IdRef="If_4">
+              <If sap2010:Annotation.AnnotationText="종료일 데이터 형식이 &quot;yyyy년MM월dd일&quot; 인지 검증" Condition="[bool종료일]" DisplayName="종료일 형식 검사 | If" sap:VirtualizedContainerService.HintSize="354,236" sap2010:WorkflowViewState.IdRef="If_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -552,7 +577,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="항목별 DT 기록 | Excel Application Scope" sap:VirtualizedContainerService.HintSize="450,453" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_str저장경로_결과 + in_strResultFile]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="항목별 DT 기록 | Excel Application Scope" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_str저장경로_결과 + in_strResultFile]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -572,7 +597,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelCopySheet>
-            <ui:ExcelWriteRange AddHeaders="True" DataTable="[io_dtExtracted]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="354,111" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="[current항목.ToString.Replace(&quot;/&quot;, &quot;&quot;)]" StartingCell="A1">
+            <ui:ExcelWriteRange AddHeaders="True" DataTable="[in_dtExtracted]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="354,111" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="[current항목.ToString.Replace(&quot;/&quot;, &quot;&quot;)]" StartingCell="A1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -585,12 +610,12 @@
       </ui:ExcelApplicationScope.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="dtBest에 항목별 1위 수집" ArrayRow="[io_dtExtracted.Rows(0).ItemArray]" DataTable="[io_dtBest]" DisplayName="1위 레코드 수집 | Add Data Row" sap:VirtualizedContainerService.HintSize="450,249" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="dtBest에 항목별 1위 수집" ArrayRow="[in_dtExtracted.Rows(0).ItemArray]" DataTable="[io_dtBest]" DisplayName="1위 레코드 수집 | Add Data Row" sap:VirtualizedContainerService.HintSize="450,249" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -609,7 +634,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:ClearDataTable DataTable="[ExtractDataTable]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="388,112" sap2010:WorkflowViewState.IdRef="ClearDataTable_7" />
       <ui:ClearDataTable DataTable="[dt추가]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="388,112" sap2010:WorkflowViewState.IdRef="ClearDataTable_8" />
-      <ui:ClearDataTable DataTable="[io_dtExtracted]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="388,103" sap2010:WorkflowViewState.IdRef="ClearDataTable_9" />
+      <ui:ClearDataTable DataTable="[in_dtExtracted]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="388,103" sap2010:WorkflowViewState.IdRef="ClearDataTable_9" />
     </Sequence>
   </Sequence>
 </Activity>

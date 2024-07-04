@@ -4,16 +4,16 @@
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="io_TransactionItem" Type="InOutArgument(sd:DataRow)" />
     <x:Property Name="in_strResultFile" Type="InArgument(x:String)" />
     <x:Property Name="in_strTempFile" Type="InArgument(x:String)" />
-    <x:Property Name="io_dtExtracted" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_dtBest" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="in_arr항목" Type="InArgument(s:String[])" />
     <x:Property Name="in_str저장경로_요청" Type="InArgument(x:String)" />
     <x:Property Name="in_str저장경로_결과" Type="InArgument(x:String)" />
+    <x:Property Name="in_dtExtracted" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>955,812</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,812</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -120,15 +120,33 @@
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="354,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;❤️❤️Started Process&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\02_GetData&amp;Process.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Jobs\02_DataProcess.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_요청">[in_str저장경로_요청]</InArgument>
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr항목">[in_arr항목]</InArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtExtracted">[io_dtExtracted]</InOutArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtBest">[io_dtBest]</InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">[in_strResultFile]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strTempFile">[in_strTempFile]</InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_TransactionItem">[io_TransactionItem]</InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_결과">[in_str저장경로_결과]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_요청">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_str저장경로_요청" />
+        </InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr항목">
+          <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="in_arr항목" />
+        </InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtBest">
+          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_dtBest" />
+        </InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strResultFile" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strTempFile">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strTempFile" />
+        </InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_TransactionItem">
+          <VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_TransactionItem" />
+        </InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_결과">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_str저장경로_결과" />
+        </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtExtracted">
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dtExtracted" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;❤️❤️Ended Process&quot;]" />

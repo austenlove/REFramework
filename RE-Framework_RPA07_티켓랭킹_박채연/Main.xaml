@@ -296,15 +296,33 @@
                       </Assign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="434,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                          <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_TransactionItem">[TransactionItem]</InOutArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">[strResultFile]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strTempFile">[strTempFile]</InArgument>
-                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtExtracted">[dtExtracted]</InOutArgument>
-                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtBest">[dtBest]</InOutArgument>
-                          <InArgument x:TypeArguments="s:String[]" x:Key="in_arr항목">[arr항목]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_요청">[str저장경로_요청]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_결과">[str저장경로_결과]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                          </InArgument>
+                          <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_TransactionItem">
+                            <VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="TransactionItem" />
+                          </InOutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strResultFile" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strTempFile">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strTempFile" />
+                          </InArgument>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtBest">
+                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dtBest" />
+                          </InOutArgument>
+                          <InArgument x:TypeArguments="s:String[]" x:Key="in_arr항목">
+                            <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="arr항목" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_요청">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="str저장경로_요청" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_결과">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="str저장경로_결과" />
+                          </InArgument>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dtExtracted">
+                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dtExtracted" />
+                          </InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <Assign DisplayName="RPA 성공 기록 | Assign" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_30">
@@ -662,17 +680,36 @@
                                     </ui:InvokeWorkflowFile>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="작업지시서 내용 가져오기" DisplayName="Mail\01_GetIMAPMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Mail\01_GetIMAPMail.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <OutArgument x:TypeArguments="x:String" x:Key="out_mailSubject">[mailSubject]</OutArgument>
-                                        <OutArgument x:TypeArguments="x:String" x:Key="out_mailBody">[mailBody]</OutArgument>
-                                        <OutArgument x:TypeArguments="x:String" x:Key="out_strDate">[strDate]</OutArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_요청">[str저장경로_요청]</InArgument>
-                                        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr항목">[arr항목]</OutArgument>
-                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_strTempFile">[strTempFile]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">[strResultFile]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_strMailID">[strMailID]</InArgument>
-                                        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sstrMailPW">[sstrMailPW]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_결과">[str저장경로_결과]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="out_mailSubject">
+                                          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="mailSubject" />
+                                        </OutArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="out_strDate">
+                                          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strDate" />
+                                        </OutArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_요청">
+                                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="str저장경로_요청" />
+                                        </InArgument>
+                                        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr항목">
+                                          <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="arr항목" />
+                                        </OutArgument>
+                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_strTempFile">
+                                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strTempFile" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">
+                                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strResultFile" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_strMailID">
+                                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailID" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sstrMailPW">
+                                          <VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="sstrMailPW" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_str저장경로_결과">
+                                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="str저장경로_결과" />
+                                        </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -824,7 +861,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="//사용한 프로그램 종료 및 결과 메일 발송 " DisplayName="End Process" sap:VirtualizedContainerService.HintSize="582,1890" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="//사용한 프로그램 종료 및 결과 메일 발송 " DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,120" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
                                 <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="536,1745" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -1082,9 +1119,9 @@
       <Variable x:TypeArguments="x:Int32" Default="0" Name="intSuccessCnt" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="intFailCnt" />
       <Variable x:TypeArguments="sd:DataTable" Default="[new System.Data.DataTable]" Name="dtBest" />
-      <Variable x:TypeArguments="sd:DataTable" Default="[new System.Data.DataTable]" Name="dtExtracted" />
       <Variable x:TypeArguments="x:String" Name="strTempFile" />
       <Variable x:TypeArguments="x:String" Name="strDate" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtExtracted" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
