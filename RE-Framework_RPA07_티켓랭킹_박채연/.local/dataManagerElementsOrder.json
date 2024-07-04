@@ -12,6 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dtExtracted&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
@@ -34,7 +35,6 @@
         "intSuccessCnt&StateMachine_1",
         "intFailCnt&StateMachine_1",
         "dtBest&StateMachine_1",
-        "dtExtracted&StateMachine_1",
         "strTempFile&StateMachine_1",
         "strDate&StateMachine_1",
         "ShouldStop&Sequence_25"
@@ -88,6 +88,7 @@
       "Path": "Mail/01_GetIMAPMail.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "mailBody&Sequence_1",
         "mailMessages&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
@@ -98,7 +99,6 @@
         "in_strTempFile",
         "in_Config",
         "out_mailSubject",
-        "out_mailBody",
         "out_strDate",
         "in_str저장경로_요청",
         "out_arr항목"
@@ -140,11 +140,11 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "in_dtExtracted",
         "in_str저장경로_결과",
         "in_str저장경로_요청",
         "in_arr항목",
         "io_dtBest",
-        "io_dtExtracted",
         "in_strTempFile",
         "in_Config",
         "io_TransactionItem",
@@ -154,20 +154,24 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Jobs/02_GetData&Process.xaml",
+      "Path": "Jobs/02_DataProcess.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "idx&Sequence_1",
-        "current항목&Sequence_1",
-        "ExtractDataTable&Sequence_1",
-        "dt추가&Sequence_1",
+        "bool종료일&Sequence_22",
+        "bool시작일&Sequence_22",
+        "idx&Sequence_23",
         "str순위&Sequence_4",
         "str제목&Sequence_4",
         "str시작일&Sequence_4",
         "str종료일&Sequence_4",
-        "str장소&Sequence_4"
+        "str장소&Sequence_4",
+        "idx&Sequence_14",
+        "current항목&Sequence_1",
+        "ExtractDataTable&Sequence_1",
+        "dt추가&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_dtExtracted",
         "in_str저장경로_결과",
         "io_TransactionItem",
         "in_Config",
@@ -175,7 +179,6 @@
         "in_strResultFile",
         "in_str저장경로_요청",
         "in_arr항목",
-        "io_dtExtracted",
         "io_dtBest"
       ],
       "ConstantsSectionElementsOrder": [],
