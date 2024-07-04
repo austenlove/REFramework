@@ -13,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1138,3626</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,1813</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_01_GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -64,6 +64,7 @@
       <x:String>UiPath.Excel.Activities.Business</x:String>
       <x:String>UiPath.Excel.Model</x:String>
       <x:String>UiPath.Activities.System.Arrays</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -132,21 +133,21 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_02_GetData&amp;Process" sap:VirtualizedContainerService.HintSize="637,3561" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_02_DataProcess" sap:VirtualizedContainerService.HintSize="512,1748" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt추가" />
       <Variable x:TypeArguments="x:String" Name="current항목" />
-      <Variable x:TypeArguments="x:Int32" Name="idx" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="575,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[current항목]</OutArgument>
       </Assign.To>
@@ -154,7 +155,7 @@
         <InArgument x:TypeArguments="x:String">[io_TransactionItem(0).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <TryCatch sap2010:Annotation.AnnotationText="successList / failureList 처리" DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="575,1548" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch sap2010:Annotation.AnnotationText="ExtractDataTable&#xA;데이터 추출 실패 시 BusinessRuleException 발생" DisplayName="데이터 수집 | Try Catch" sap:VirtualizedContainerService.HintSize="450,396" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -230,10 +231,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,160" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -241,142 +242,317 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Throw Exception="[new BusinessRuleException(&quot;⚠️데이터 테이블 추출 및 생성에 오류가 있습니다.&quot; + current항목.ToString)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            <Throw DisplayName="Throw ★ 예외처리" Exception="[new BusinessRuleException(&quot;⚠️&quot; + current항목.ToString + &quot; 데이터 테이블 추출 및 생성에 오류가 있습니다. &quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[ExtractDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="575,1151" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-      <ui:ForEachRow.Body>
-        <ActivityAction x:TypeArguments="sd:DataRow">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="currentRow" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="541,955" sap2010:WorkflowViewState.IdRef="Sequence_4">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="str순위" />
-              <Variable x:TypeArguments="x:String" Name="str제목" />
-              <Variable x:TypeArguments="x:String" Name="str시작일" />
-              <Variable x:TypeArguments="x:String" Name="str종료일" />
-              <Variable x:TypeArguments="x:String" Name="str장소" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,272" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str순위]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[(idx+1).ToString + "위"]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str제목]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[currentRow("제목").ToString.Trim]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str시작일]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[currentRow("날짜_장소").ToString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries)(0).Split("~")(0)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str종료일]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[currentRow("날짜_장소").ToString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries)(0).Split("~")(1)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str장소]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[currentRow("날짜_장소").ToString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Last.Trim]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
-            <ui:MultipleAssign sap2010:Annotation.AnnotationText="날짜 형식 변경 (2024.01.01 =&gt; 2024년01월01일)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str시작일]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(str시작일, "yyyy.MM.dd", System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy년MM월dd일")]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str종료일]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(str종료일, "yyyy.MM.dd", System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy년MM월dd일")]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:MultipleAssign>
-            <ui:LogMessage sap2010:Annotation.AnnotationText="str시작일" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,88" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;✅가공된 시작일 : &quot; + str시작일]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:LogMessage>
-            <ui:LogMessage sap2010:Annotation.AnnotationText="str종료일" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,88" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;✅가공된 종료일 : &quot; + str종료일]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:LogMessage>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{str순위, str제목, str시작일, str종료일, str장소}]" DataTable="[io_dtExtracted]" DisplayName="dtExtract에 완성된 행 추가 | Add Data Row" sap:VirtualizedContainerService.HintSize="479,209" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:AddDataRow>
-          </Sequence>
-        </ActivityAction>
-      </ui:ForEachRow.Body>
+    <Sequence DisplayName="Data Process | Sequence" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_23">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Int32" Name="idx" />
+      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:ForEachRow>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="항목별 DT 기록 | Excel Application Scope" sap:VirtualizedContainerService.HintSize="575,493" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_str저장경로_결과 + in_strResultFile]">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[ExtractDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="575,1142" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="currentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="541,955" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="str순위" />
+                <Variable x:TypeArguments="x:String" Name="str제목" />
+                <Variable x:TypeArguments="x:String" Name="str시작일" />
+                <Variable x:TypeArguments="x:String" Name="str종료일" />
+                <Variable x:TypeArguments="x:String" Name="str장소" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,272" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[str순위]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[(idx+1).ToString + "위"]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[str제목]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentRow("제목").ToString.Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[str시작일]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentRow("날짜_장소").ToString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries)(0).Split("~")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[str종료일]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentRow("날짜_장소").ToString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries)(0).Split("~")(1)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[str장소]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentRow("날짜_장소").ToString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Last.Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+              <ui:MultipleAssign sap2010:Annotation.AnnotationText="날짜 형식 변경 (2024.01.01 =&gt; 2024년01월01일)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[str시작일]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(str시작일, "yyyy.MM.dd", System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy년MM월dd일")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[str종료일]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(str종료일, "yyyy.MM.dd", System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy년MM월dd일")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+              <ui:LogMessage sap2010:Annotation.AnnotationText="str시작일" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,88" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;✅가공된 시작일 : &quot; + str시작일]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+              <ui:LogMessage sap2010:Annotation.AnnotationText="str종료일" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,88" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;✅가공된 종료일 : &quot; + str종료일]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{str순위, str제목, str시작일, str종료일, str장소}]" DataTable="[io_dtExtracted]" DisplayName="dtExtract에 완성된 행 추가 | Add Data Row" sap:VirtualizedContainerService.HintSize="479,209" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:AddDataRow>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEachRow>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="데이터 추출 시 예외 처리(BusinessRuleException 발생)&#xA;&#xA;- 필수 필드가 비어 있는 경우&#xA;- 데이터 형식이 올바르지 않은 경우&#xA;- 특정 비즈니스 조건을 만족하지 않는 경우" DisplayName="유효성 검증 | Sequence" sap:VirtualizedContainerService.HintSize="450,312" sap2010:WorkflowViewState.IdRef="Sequence_14">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Int32" Name="idx" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[io_dtExtracted]" DisplayName="필드 유효성 검사 | For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,57" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="512,506" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If sap2010:Annotation.AnnotationText="필수 필드가 비었는지 검사" Condition="[String.IsNullOrEmpty(CurrentRow.Field(Of String)(&quot;순위&quot;)) Or String.IsNullOrEmpty(CurrentRow.Field(Of String)(&quot;제목&quot;))]" DisplayName="필수 필드 비었는지 검사 | If" sap:VirtualizedContainerService.HintSize="450,418" sap2010:WorkflowViewState.IdRef="If_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,201" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Throw DisplayName="Throw ★ 예외처리" Exception="[new BusinessRuleException(&quot;⚠️필수 필드인 순위와 제목이 비어 있습니다: &quot; + (idx+1).ToString + &quot;행&quot;)]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEachRow>
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idx]" DataTable="[io_dtExtracted]" DisplayName="데이터 타입 유효성 검사 | For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="512,1179" sap2010:WorkflowViewState.IdRef="Sequence_22">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="bool시작일" />
+                <Variable x:TypeArguments="x:Boolean" Name="bool종료일" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:IsMatch sap2010:Annotation.AnnotationText="bool시작일" DisplayName="Is Text Matching" sap:VirtualizedContainerService.HintSize="450,123" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[CurrentRow(&quot;시작일&quot;).ToString]" IsBuilderTabModified="False" Pattern="^\d{4}년\d{2}월\d{2}일$" RegexOption="IgnoreCase, Compiled" Result="[bool시작일]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:IsMatch>
+              <If sap2010:Annotation.AnnotationText="시작일 데이터 형식이 &quot;yyyy년MM월dd일&quot; 인지 검증" Condition="[bool시작일]" DisplayName="시작일 형식 검사 | If" sap:VirtualizedContainerService.HintSize="450,427" sap2010:WorkflowViewState.IdRef="If_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,201" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Throw DisplayName="Throw ★ 예외처리" Exception="[New BusinessRuleException(&quot;⚠️시작일 형식이 올바르지 않습니다: &quot; + CurrentRow(&quot;시작일&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                  </Sequence>
+                </If.Else>
+              </If>
+              <ui:IsMatch sap2010:Annotation.AnnotationText="bool종료일" DisplayName="Is Text Matching" sap:VirtualizedContainerService.HintSize="450,123" sap2010:WorkflowViewState.IdRef="IsMatch_2" Input="[CurrentRow(&quot;종료일&quot;).ToString]" IsBuilderTabModified="False" Pattern="^\d{4}년\d{2}월\d{2}일$" RegexOption="IgnoreCase, Compiled" Result="[bool종료일]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:IsMatch>
+              <If sap2010:Annotation.AnnotationText="종료일 데이터 형식이 &quot;yyyy년MM월dd일&quot; 인지 검증" Condition="[bool종료일]" DisplayName="종료일 형식 검사 | If" sap:VirtualizedContainerService.HintSize="450,418" sap2010:WorkflowViewState.IdRef="If_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,201" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Throw DisplayName="Throw ★ 예외처리" Exception="[New BusinessRuleException(&quot;⚠️종료일 형식이 올바르지 않습니다: &quot; + CurrentRow(&quot;종료일&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEachRow>
+    </Sequence>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="항목별 DT 기록 | Excel Application Scope" sap:VirtualizedContainerService.HintSize="450,453" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_str저장경로_결과 + in_strResultFile]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -414,16 +590,16 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="dtBest에 항목별 1위 수집" ArrayRow="[io_dtExtracted.Rows(0).ItemArray]" DataTable="[io_dtBest]" DisplayName="1위 레코드 수집 | Add Data Row" sap:VirtualizedContainerService.HintSize="575,88" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="dtBest에 항목별 1위 수집" ArrayRow="[io_dtExtracted.Rows(0).ItemArray]" DataTable="[io_dtBest]" DisplayName="1위 레코드 수집 | Add Data Row" sap:VirtualizedContainerService.HintSize="450,249" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:AddDataRow>
-    <Sequence sap2010:Annotation.AnnotationText="ExtractDataTable, dt추가, dtExtracted =&gt; clear data table" DisplayName="dt 초기화 | Sequence" sap:VirtualizedContainerService.HintSize="575,79" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <Sequence sap2010:Annotation.AnnotationText="ExtractDataTable, dt추가, dtExtracted =&gt; clear data table" DisplayName="dt 초기화 | Sequence" sap:VirtualizedContainerService.HintSize="450,79" sap2010:WorkflowViewState.IdRef="Sequence_12">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>

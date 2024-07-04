@@ -15,7 +15,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1138,1909</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>955,1909</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_02_IMAP_메일수신_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -123,7 +123,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[in_strMailID]" EnableSSL="True" FilterExpression="From 'rpa.sj.jeong@gmail.com' Subject '2024/06/28'" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="575,57" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="RPA" MarkAsRead="False" Messages="[mailMessages]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="Auto" SecurePassword="[in_sstrMailPW]" Server="imap.gmail.com" Top="30" />
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[in_strMailID]" EnableSSL="True" FilterExpression="From 'rpa.sj.jeong@gmail.com' Subject '2024/07/04'" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="575,57" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="RPA" MarkAsRead="False" Messages="[mailMessages]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="Auto" SecurePassword="[in_sstrMailPW]" Server="imap.gmail.com" Top="30" />
     <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each currentMailMessage" sap:VirtualizedContainerService.HintSize="575,1220" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[mailMessages]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
