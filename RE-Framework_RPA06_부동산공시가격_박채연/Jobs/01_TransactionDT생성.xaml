@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>997,1439</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1112,1688</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_01_TransactionDT생성_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -98,7 +98,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="[&quot;회원목록&quot; 시트의 DT 생성]&#xD;&#xA;&#xA;0 : 고객번호&#xA;1 : 고객명&#xA;2 : 대분류 (시도)  == 시/도 선택&#xA;3 : 중분류 (구)  == 시/군/구 선택&#xA;4 : 소분류 (도로명)  == &#xA;5 : 단지명&#xA;6 : 동&#xA;7 : 호&#xA;8 : 기준가격(￦)&#xA;9 : 공시기준일&#xA;10 : 공시기준일 가격(￦)&#xA;11 : 변동&#xA;12 : RPA" DisplayName="_01_TransactionDT생성" sap:VirtualizedContainerService.HintSize="574,1374" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="[&quot;회원목록&quot; 시트의 DT 생성]&#xA;&#xA;0 : 고객번호&#xA;1 : 고객명&#xA;2 : 대분류 (시도)  == 시/도 선택&#xA;3 : 중분류 (구)  == 시/군/구 선택&#xA;4 : 소분류 (도로명)  == &#xA;5 : 단지명&#xA;6 : 동&#xA;7 : 호&#xA;8 : 기준가격(￦)&#xA;9 : 공시기준일&#xA;10 : 공시기준일 가격(￦)&#xA;11 : 변동&#xA;12 : RPA" DisplayName="_01_TransactionDT생성" sap:VirtualizedContainerService.HintSize="574,1623" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -152,6 +152,13 @@
         </ui:ExcelApplicationScope.Body>
       </ui:ExcelApplicationScope>
     </Sequence>
+    <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="RPA 열 추가" ColumnName="RPA" DataTable="[out_dtTransaction]" DisplayName="RPA 열 추가 | Add Data Column" sap:VirtualizedContainerService.HintSize="512,249" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AddDataColumn>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;★TransactionDT 생성 완료★&quot;]" />
   </Sequence>
 </Activity>

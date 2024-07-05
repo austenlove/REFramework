@@ -12,6 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "NoData&StateMachine_1",
         "strTempFile&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
@@ -27,7 +28,6 @@
         "strMailID&StateMachine_1",
         "sstrMailPW&StateMachine_1",
         "strResultFile&StateMachine_1",
-        "mailSubject&StateMachine_1",
         "intSuccessCnt&StateMachine_1",
         "intFailCnt&StateMachine_1",
         "ShouldStop&Sequence_25"
@@ -91,6 +91,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "io_NoData",
         "in_strTempFile",
         "in_Config",
         "io_TransactionItem",
@@ -103,7 +104,12 @@
       "Path": "Jobs/02_DataProcess.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "str공시기준일가격&Sequence_41",
+        "uiOptions단지명&Sequence_61",
+        "uiOptions동&Sequence_61",
+        "str단지명검색결과&Sequence_61",
+        "str동검색결과&Sequence_61",
+        "boolFound&Sequence_61",
+        "str공시기준일가격&Sequence_58",
         "has공시기준일가격&Sequence_43",
         "str공시기준일&Sequence_49",
         "has공시기준일&Sequence_43",
@@ -113,14 +119,10 @@
         "str도로명초성&Sequence_49",
         "str도로명&Sequence_49",
         "str구&Sequence_49",
-        "str시도&Sequence_49",
-        "uiOptions단지명&Sequence_29",
-        "uiOptions동&Sequence_29",
-        "str단지명검색결과&Sequence_29",
-        "str동검색결과&Sequence_29",
-        "boolFound&Sequence_29"
+        "str시도&Sequence_49"
       ],
       "ArgumentsSectionElementsOrder": [
+        "io_NoData",
         "io_TransactionItem",
         "in_Config",
         "in_strTempFile",
@@ -176,8 +178,11 @@
     {
       "Path": "Jobs/00_Variables.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
+      "VariablesSectionElementsOrder": [
+        "dt_NoData&Sequence_1"
+      ],
       "ArgumentsSectionElementsOrder": [
+        "out_NoData",
         "in_Config",
         "out_strResultFile",
         "out_strTempFile"
@@ -203,6 +208,33 @@
         "io_RetryNumber",
         "io_TransactionNumber",
         "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/02-1_DataPreprocess.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "io_TransactionItem",
+        "in_str동"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/02-2_GetChosung.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strFrist&Sequence_1",
+        "list_chosung&Sequence_1",
+        "intIndex&Sequence_1",
+        "strUnicode&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem",
+        "out_strInitialword"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
