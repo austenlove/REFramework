@@ -1,0 +1,55 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Config&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "strMailID&StateMachine_1",
+        "sstrMailPW&StateMachine_1",
+        "strResultFile&StateMachine_1",
+        "intSuccessCnt&StateMachine_1",
+        "intFailCnt&StateMachine_1",
+        "strTempFile&StateMachine_1",
+        "listFail&StateMachine_1",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/00_Variables.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_NoData&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_strTempFile",
+        "out_strResultFile",
+        "in_Config",
+        "out_listFail"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}

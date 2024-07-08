@@ -12,7 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "NoData&StateMachine_1",
+        "listFail&StateMachine_1",
         "strTempFile&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
@@ -62,6 +62,8 @@
       "Path": "Mail/04_SMTP_SendMail.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "strFail&Sequence_1",
+        "strFail&Sequence_12",
         "strDate&Sequence_1",
         "strRowHTML&Sequence_1",
         "strContentHTML&Sequence_1",
@@ -76,6 +78,7 @@
         "strSubject&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_listFail",
         "in_dtTransactionData",
         "in_Config",
         "in_strResultFile",
@@ -91,7 +94,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
-        "io_NoData",
+        "io_listFail",
         "in_strTempFile",
         "in_Config",
         "io_TransactionItem",
@@ -104,15 +107,15 @@
       "Path": "Jobs/02_DataProcess.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "has공시기준일가격&Sequence_43",
+        "has공시기준일&Sequence_43",
         "uiOptions단지명&Sequence_61",
         "uiOptions동&Sequence_61",
         "str단지명검색결과&Sequence_61",
         "str동검색결과&Sequence_61",
         "boolFound&Sequence_61",
         "str공시기준일가격&Sequence_58",
-        "has공시기준일가격&Sequence_43",
         "str공시기준일&Sequence_49",
-        "has공시기준일&Sequence_43",
         "str호&Sequence_49",
         "str동&Sequence_49",
         "str단지명&Sequence_49",
@@ -122,7 +125,7 @@
         "str시도&Sequence_49"
       ],
       "ArgumentsSectionElementsOrder": [
-        "io_NoData",
+        "io_listFail",
         "io_TransactionItem",
         "in_Config",
         "in_strTempFile",
