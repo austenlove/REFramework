@@ -897,9 +897,9 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="//사용한 프로그램 종료 및 결과 메일 발송 " DisplayName="End Process" sap:VirtualizedContainerService.HintSize="596,2568" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="//사용한 프로그램 종료 및 결과 메일 발송 " DisplayName="End Process" sap:VirtualizedContainerService.HintSize="692,2901" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
-                                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="550,2423" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="646,2756" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -907,35 +907,52 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <TryCatch.Try>
-                                    <Sequence DisplayName="End - Try" sap:VirtualizedContainerService.HintSize="512,1135" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                    <Sequence DisplayName="End - Try" sap:VirtualizedContainerService.HintSize="608,1468" sap2010:WorkflowViewState.IdRef="Sequence_37">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <If Condition="[tempExists]" DisplayName="temp 파일 존재유무 구별하여 실행 | If" sap:VirtualizedContainerService.HintSize="450,1047" sap2010:WorkflowViewState.IdRef="If_16">
+                                      <If Condition="[tempExists]" DisplayName="temp 파일 존재유무 구별하여 실행 | If" sap:VirtualizedContainerService.HintSize="546,1380" sap2010:WorkflowViewState.IdRef="If_16">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <If.Then>
-                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,517" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,850" sap2010:WorkflowViewState.IdRef="Sequence_41">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:WriteRange AddHeaders="True" DataTable="[dt_TransactionData]" DisplayName="DT 기록 | Write Range Workbook" sap:VirtualizedContainerService.HintSize="354,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Result" StartingCell="A1" WorkbookPath="[strResultFile]">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                            </ui:WriteRange>
-                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\04_SMTP_SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Mail\04_SMTP_SendMail.xaml">
+                                            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="450,481" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[strResultFile]">
+                                              <ui:ExcelApplicationScope.Body>
+                                                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                                                  <ActivityAction.Argument>
+                                                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                                                  </ActivityAction.Argument>
+                                                  <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,339" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:ExcelCopySheet DestinationFilePath="[strResultFile]" DestinationSheetName="회원목록" DisplayName="Copy Sheet" sap:VirtualizedContainerService.HintSize="354,112" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="Result" />
+                                                    <ui:WriteRange AddHeaders="True" DataTable="[dt_TransactionData]" DisplayName="DT 기록 | Write Range Workbook" sap:VirtualizedContainerService.HintSize="354,139" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Result" StartingCell="A1" WorkbookPath="[strResultFile]">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </ui:WriteRange>
+                                                  </Sequence>
+                                                </ActivityAction>
+                                              </ui:ExcelApplicationScope.Body>
+                                            </ui:ExcelApplicationScope>
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\04_SMTP_SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Mail\04_SMTP_SendMail.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
                                                 <InArgument x:TypeArguments="x:String" x:Key="in_strReciever">[Config("MailTo").ToString]</InArgument>
                                                 <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sstrMailPW">[sstrMailPW]</InArgument>
@@ -956,7 +973,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InvokeWorkflowFile>
-                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
                                                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                               </ui:InvokeWorkflowFile.Arguments>
@@ -978,39 +995,17 @@
                                             </sap:WorkflowViewStateService.ViewState>
                                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Mail\04_SMTP_SendMail_NoData.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_40" UnSafe="False" WorkflowFileName="Mail\04_SMTP_SendMail_NoData.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strReciever">
-                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;MailTo&quot;).ToString" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sstrMailPW">
-                                                  <VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="sstrMailPW" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strMailID">
-                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailID" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">
-                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strResultFile" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                                  <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtTransactionData">
-                                                  <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionData" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_listFail">
-                                                  <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="listFail" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strTempFile">
-                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strTempFile" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_intTotalCnt">
-                                                  <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intTotalCnt" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_intSuccessCnt">
-                                                  <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intSuccessCnt" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_intFailCnt">
-                                                  <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intFailCnt" />
-                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strReciever">[Config("MailTo").ToString]</InArgument>
+                                                <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sstrMailPW">[sstrMailPW]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strMailID">[strMailID]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">[strResultFile]</InArgument>
+                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtTransactionData">[dt_TransactionData]</InArgument>
+                                                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_listFail">[listFail]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strTempFile">[strTempFile]</InArgument>
+                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_intTotalCnt">[intTotalCnt]</InArgument>
+                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_intSuccessCnt">[intSuccessCnt]</InArgument>
+                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_intFailCnt">[intFailCnt]</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
@@ -1030,7 +1025,7 @@
                                     </Sequence>
                                   </TryCatch.Try>
                                   <TryCatch.Catches>
-                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516,623" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="612,623" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
