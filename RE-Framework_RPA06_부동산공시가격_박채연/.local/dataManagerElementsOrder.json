@@ -1,0 +1,162 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Config&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "strMailID&StateMachine_1",
+        "sstrMailPW&StateMachine_1",
+        "strResultFile&StateMachine_1",
+        "intSuccessCnt&StateMachine_1",
+        "intFailCnt&StateMachine_1",
+        "strTempFile&StateMachine_1",
+        "listFail&StateMachine_1",
+        "tempExists&StateMachine_1",
+        "intTotalCnt&StateMachine_1",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Mail/04_SMTP_SendMail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strFail&Sequence_1",
+        "strSubject&Sequence_1",
+        "strBody&Sequence_1",
+        "strResult&Sequence_1",
+        "strMemo&Sequence_1",
+        "strContentHTML&Sequence_1",
+        "strRowHTML&Sequence_1",
+        "strCellValue&Sequence_7",
+        "strCellHTML&Sequence_7"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strReciever",
+        "in_sstrMailPW",
+        "in_strMailID",
+        "in_strResultFile",
+        "in_Config",
+        "in_dtTransactionData",
+        "in_listFail",
+        "in_strTempFile",
+        "in_intTotalCnt",
+        "in_intSuccessCnt",
+        "in_intFailCnt"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Mail/04_SMTP_SendMail_NoData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strSubject&Sequence_1",
+        "strBody&Sequence_1",
+        "strResult&Sequence_1",
+        "strMemo&Sequence_1",
+        "strContentHTML&Sequence_1",
+        "strRowHTML&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strReciever",
+        "in_sstrMailPW",
+        "in_strMailID",
+        "in_strResultFile",
+        "in_Config",
+        "in_dtTransactionData",
+        "in_listFail",
+        "in_strTempFile",
+        "in_intTotalCnt",
+        "in_intSuccessCnt",
+        "in_intFailCnt"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/00_Variables.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_NoData&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_strTempFile",
+        "out_strResultFile",
+        "in_Config",
+        "out_listFail",
+        "out_intTotalCnt",
+        "out_intSuccessCnt",
+        "out_intFailCnt"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "io_TransactionItem",
+        "in_strResultFile",
+        "in_strTempFile",
+        "io_listFail"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/02_DataProcess.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "str시도&Sequence_49",
+        "str구&Sequence_49",
+        "str도로명&Sequence_49",
+        "str도로명초성&Sequence_49",
+        "str단지명&Sequence_49",
+        "str동&Sequence_49",
+        "str호&Sequence_49",
+        "str공시기준일&Sequence_49",
+        "uiOptions단지명&Sequence_61",
+        "uiOptions동&Sequence_61",
+        "str단지명검색결과&Sequence_61",
+        "str동검색결과&Sequence_61",
+        "boolFound&Sequence_61",
+        "has공시기준일&Sequence_43",
+        "has공시기준일가격&Sequence_43",
+        "str공시기준일가격&Sequence_58"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strResultFile",
+        "in_strTempFile",
+        "in_Config",
+        "io_TransactionItem",
+        "io_listFail"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
