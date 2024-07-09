@@ -1,16 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="_04_SMTP_SendMail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="_04_SMTP_SendMail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_strReciever" Type="InArgument(x:String)" />
     <x:Property Name="in_sstrMailPW" Type="InArgument(ss:SecureString)" />
     <x:Property Name="in_strMailID" Type="InArgument(x:String)" />
-    <x:Property Name="in_strResultFile" Type="InArgument(x:String)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_dtTransactionData" Type="InArgument(sd:DataTable)" />
-    <x:Property Name="in_listFail" Type="InArgument(scg:List(x:String))" />
     <x:Property Name="in_strTempFile" Type="InArgument(x:String)" />
-    <x:Property Name="in_intTotalCnt" Type="InArgument(x:Int32)" />
-    <x:Property Name="in_intSuccessCnt" Type="InArgument(x:Int32)" />
-    <x:Property Name="in_intFailCnt" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_strDate" Type="InArgument(x:String)" />
   </x:Members>
   <this:_04_SMTP_SendMail.in_sstrMailPW>
     <InArgument x:TypeArguments="ss:SecureString" />
@@ -21,7 +16,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1112,941</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1046,1905</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_04_SMTP_SendMail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -136,7 +131,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_04_SMTP_SendMail" sap:VirtualizedContainerService.HintSize="541,876" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_04_SMTP_SendMail" sap:VirtualizedContainerService.HintSize="603,1840" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strSubject" />
       <Variable x:TypeArguments="x:String" Name="strBody" />
@@ -150,7 +145,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="시작 로그 | Log Message" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;✅메일 발송 시작&quot;]">
+    <ui:LogMessage DisplayName="시작 로그 | Log Message" sap:VirtualizedContainerService.HintSize="541,57" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;✅메일 발송 시작&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -158,7 +153,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;⚠️처리할 데이터가 없습니다.&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="541,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;⚠️처리할 데이터가 없습니다.&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -166,7 +161,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="541,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
@@ -193,14 +188,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <Sequence DisplayName="메일 제목 | Sequence" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <Sequence DisplayName="메일 제목 | Sequence" sap:VirtualizedContainerService.HintSize="541,386" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage sap2010:Annotation.AnnotationText="strSubject&#xA;&#xA;{0}=부서코드&#xA;{1}=과제명 dicConfig(&quot;과제명&quot;).ToString&#xA;{2}= 성공입니다. &amp; 실패입니다. &amp; 처리할 Data가 없습니다" DisplayName="메일 제목 | Log Message" sap:VirtualizedContainerService.HintSize="388,266" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;✅메일 제목 : &quot; + String.Format(&quot;{0} {1} {2}&quot;, strSubject, Today.ToString(&quot;yyyyMMdd&quot;), strResult)]">
+      <ui:LogMessage sap2010:Annotation.AnnotationText="strSubject&#xA;&#xA;{0}=부서코드&#xA;{1}=과제명 dicConfig(&quot;과제명&quot;).ToString&#xA;{2}= 성공입니다. &amp; 실패입니다. &amp; 처리할 Data가 없습니다" DisplayName="메일 제목 | Log Message" sap:VirtualizedContainerService.HintSize="388,266" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;✅메일 제목 : &quot; + String.Format(&quot;{0} {1} {2}&quot;, strSubject, in_strDate, strResult)]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -210,10 +205,10 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="{}{0}=날짜&#xA;{1}=과제명 dicConfig(&quot;과제명&quot;).ToString&#xA;{2}=기준정보시트 &amp; 다운로드대상시트 &amp; 20.다운로드대상폴더&#xA;{3}=기준정보시트ID &amp; 다운로드대상시트ID &amp; 20.다운로드대상폴더ID" DisplayName="메일 본문 | Sequence" sap:VirtualizedContainerService.HintSize="479,129" sap2010:WorkflowViewState.IdRef="Sequence_20">
+    <Sequence sap2010:Annotation.AnnotationText="{}{0}=날짜&#xA;{1}=과제명 dicConfig(&quot;과제명&quot;).ToString&#xA;{2}=기준정보시트 &amp; 다운로드대상시트 &amp; 20.다운로드대상폴더&#xA;{3}=기준정보시트ID &amp; 다운로드대상시트ID &amp; 20.다운로드대상폴더ID" DisplayName="메일 본문 | Sequence" sap:VirtualizedContainerService.HintSize="541,637" sap2010:WorkflowViewState.IdRef="Sequence_20">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
@@ -239,7 +234,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
-      <ui:LogMessage sap2010:Annotation.AnnotationText="strSubject&#xA;&#xA;{0}=부서코드&#xA;{1}=과제명 dicConfig(&quot;과제명&quot;).ToString&#xA;{2}= 성공입니다. &amp; 실패입니다. &amp; 처리할 Data가 없습니다" DisplayName="메일 본문 | Log Message" sap:VirtualizedContainerService.HintSize="479,266" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;✅메일 본문 : &quot; + String.Format(strBody, Today.ToString(&quot;yyyyMMdd&quot;), in_Config(&quot;과제명&quot;).ToString, in_strTempFile, &quot;&quot;)]">
+      <ui:LogMessage sap2010:Annotation.AnnotationText="strSubject&#xA;&#xA;{0}=부서코드&#xA;{1}=과제명 dicConfig(&quot;과제명&quot;).ToString&#xA;{2}= 성공입니다. &amp; 실패입니다. &amp; 처리할 Data가 없습니다" DisplayName="메일 본문 | Log Message" sap:VirtualizedContainerService.HintSize="479,266" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;✅메일 본문 : &quot; + String.Format(strBody, in_strDate, in_Config(&quot;과제명&quot;).ToString, in_strTempFile, &quot;&quot;)]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -249,19 +244,19 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
     </Sequence>
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="server : &quot;smtp.gmail.com&quot;&#xA;port : 587&#xA;HTML = True" Body="[String.Format(strBody, Today.ToString(&quot;yyyyMMdd&quot;), in_Config(&quot;과제명&quot;).ToString, in_strTempFile, &quot;&quot;)]" DisplayName="Send SMTP Mail Message" Email="[in_strMailID]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrMailPW]" Server="smtp.gmail.com" Subject="[String.Format(&quot;{0} {1} {2}&quot;, strSubject, Today.ToString(&quot;yyyyMMdd&quot;), strResult)]" To="[in_strReciever]">
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="server : &quot;smtp.gmail.com&quot;&#xA;port : 587&#xA;HTML = True" Body="[String.Format(strBody, in_strDate, in_Config(&quot;과제명&quot;).ToString, in_strTempFile, &quot;&quot;)]" DisplayName="Send SMTP Mail Message" Email="[in_strMailID]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="541,241" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrMailPW]" Server="smtp.gmail.com" Subject="[String.Format(&quot;{0} {1} {2}&quot;, strSubject, Today.ToString(&quot;yyyyMMdd&quot;), strResult)]" To="[in_strReciever]">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
       </ui:SendMail.Files>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:SendMail>
-    <ui:LogMessage DisplayName="종료 로그 | Log Message" sap:VirtualizedContainerService.HintSize="479,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;✅메일 발송 종료&quot;]">
+    <ui:LogMessage DisplayName="종료 로그 | Log Message" sap:VirtualizedContainerService.HintSize="541,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;✅메일 발송 종료&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>

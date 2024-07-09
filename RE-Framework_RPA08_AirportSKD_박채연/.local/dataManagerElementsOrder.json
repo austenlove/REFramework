@@ -1,0 +1,217 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "intTotalCnt&StateMachine_1",
+        "tempExists&StateMachine_1",
+        "listFail&StateMachine_1",
+        "intFailCnt&StateMachine_1",
+        "intSuccessCnt&StateMachine_1",
+        "dtAirportCode&StateMachine_1",
+        "strFirstSheet&Sequence_42",
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Config&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "strMailID&StateMachine_1",
+        "sstrMailPW&StateMachine_1",
+        "listAttachment&StateMachine_1",
+        "strResultFile&StateMachine_1",
+        "dtNorth&StateMachine_1",
+        "dtSouth&StateMachine_1",
+        "sourceFiles&StateMachine_1",
+        "strTempFile&StateMachine_1",
+        "mailSubject&StateMachine_1",
+        "strDate&StateMachine_1",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtShopping&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_dtSouth",
+        "io_dtNorth",
+        "in_dtAirportCode",
+        "in_Config",
+        "io_TransactionItem",
+        "in_strResultFile"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/01_TransactionDT생성.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strFirstSheet&Sequence_4",
+        "idx&Sequence_6",
+        "arrColumns&Sequence_6",
+        "dtExtracted&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_dtTransaction",
+        "in_sourceFiles"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/02_DataProcess.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strCodeICAO&Sequence_8"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_dtAirportCode",
+        "io_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/04_DT_Diverge.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "str운항종료일&Sequence_1",
+        "str운항시작일&Sequence_1",
+        "str터미널&Sequence_1",
+        "str목적지&Sequence_1",
+        "str항공사&Sequence_1",
+        "str운항편명&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_dtSouth",
+        "io_dtNorth",
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/03_Validation.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "is운항종료일&Sequence_10",
+        "is운항시작일&Sequence_10"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Mail/04_SMTP_SendMail_NoData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strSubject&Sequence_1",
+        "strBody&Sequence_1",
+        "strResult&Sequence_1",
+        "strMemo&Sequence_1",
+        "strContentHTML&Sequence_1",
+        "strRowHTML&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strDate",
+        "in_strTempFile",
+        "in_strReciever",
+        "in_sstrMailPW",
+        "in_strMailID",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Mail/04_SMTP_SendMail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strCellHTML2&Sequence_22",
+        "strCellValue2&Sequence_22",
+        "strRowHTML2&Sequence_1",
+        "strContentHTML2&Sequence_1",
+        "strCellValue&Sequence_22",
+        "strCellHTML&Sequence_22",
+        "dtResult&Sequence_1",
+        "strSubject&Sequence_1",
+        "strBody&Sequence_1",
+        "strResult&Sequence_1",
+        "strMemo&Sequence_1",
+        "strContentHTML&Sequence_1",
+        "strRowHTML&Sequence_1",
+        "strFail&Sequence_1",
+        "strCellValue&Sequence_7",
+        "strCellHTML&Sequence_7"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strDate",
+        "in_dtSouth",
+        "in_dtNorth",
+        "in_strReciever",
+        "in_sstrMailPW",
+        "in_strMailID",
+        "in_strResultFile",
+        "in_Config",
+        "in_dtTransactionData",
+        "in_listFail",
+        "in_strTempFile",
+        "in_intTotalCnt",
+        "in_intSuccessCnt",
+        "in_intFailCnt"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Mail/01_GetIMAPMail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "mailMessages&Sequence_1",
+        "mailBody&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_mailSubject",
+        "out_strDate",
+        "in_Config",
+        "in_strTempFile",
+        "in_strResultFile",
+        "in_strMailID",
+        "in_sstrMailPW"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/CloseAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
