@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1047,4173</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1047,1911</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_02_IMAP_메일수신_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -119,7 +119,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="&#xA;[출력 변수]&#xA;mailSubject&#xA;mailBody&#xA;strDate (이메일에 기재된 날짜)" DisplayName="_02_IMAP_메일수신" sap:VirtualizedContainerService.HintSize="784,4108" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="&#xA;[출력 변수]&#xA;mailSubject&#xA;mailBody&#xA;strDate (이메일에 기재된 날짜)" DisplayName="_02_IMAP_메일수신" sap:VirtualizedContainerService.HintSize="784,1846" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mailMessages" />
       <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="filePaths" />
@@ -132,7 +132,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[in_strMailID]" EnableSSL="True" FilterExpression="From 'rpa.sj.jeong@gmail.com'" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="722,57" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="RPA" MarkAsRead="False" Messages="[mailMessages]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="Auto" SecurePassword="[in_sstrMailPW]" Server="imap.gmail.com" Top="30" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="조건에 맞는 메일 가져오기 | For Each" sap:VirtualizedContainerService.HintSize="722,1316" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[mailMessages]">
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="조건에 맞는 메일 가져오기 | For Each" sap:VirtualizedContainerService.HintSize="722,57" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[mailMessages]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
@@ -229,12 +229,12 @@
       </ui:ForEach.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:ForEach x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="1. 파일이 여러 개인 경우 → 파일명에 strDate를 포함하는 파일 찾기&#xD;&#xA;2. 찾은 파일 결과 폴더로 복사 / 파일 내 시트명 list항목으로 수집" CurrentIndex="[idx]" DisplayName="파일명/경로 추출 | For Each" sap:VirtualizedContainerService.HintSize="722,1021" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[filePaths]">
+    <ui:ForEach x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="1. 파일이 여러 개인 경우 → 파일명에 strDate를 포함하는 파일을 선택적으로 찾아서 다운로드&#xA;2. 찾은 파일 결과 폴더로 복사 / 파일 내 시트명 list항목으로 수집" CurrentIndex="[idx]" DisplayName="파일명/경로 추출 | For Each" sap:VirtualizedContainerService.HintSize="722,174" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[filePaths]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -298,7 +298,7 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -321,7 +321,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" sap2010:Annotation.AnnotationText="지정된 파일의 시트명들을 arr항목으로 저장&#xD;&#xA;*arr항목 : 오피스디포, 드림디포, 양지사" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="722,1168" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_3">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" sap2010:Annotation.AnnotationText="지정된 엑셀 파일의 시트명들을 list항목으로 저장&#xA;*list항목 : 오피스디포, 드림디포, 양지사" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="722,1128" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_3">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
@@ -396,11 +396,11 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <ui:LogMessage sap2010:Annotation.AnnotationText="arr항목" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="722,195" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;✅arr항목 : &quot; + out_list항목.Count.ToString]">
+    <ui:LogMessage sap2010:Annotation.AnnotationText="list항목 확인" DisplayName="list항목 확인 | Log Message" sap:VirtualizedContainerService.HintSize="722,79" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;✅list항목 개수 : &quot; + out_list항목.Count.ToString]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>

@@ -700,7 +700,7 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:MultipleAssign>
                                     </Sequence>
-                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="파일명/경로 설정 완료&#xD;&#xA;arr항목 추출" DisplayName="Mail\01_GetIMAPMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="541,187" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Mail\01_GetIMAPMail.xaml">
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="파일명/경로 설정 완료&#xD;&#xA;검색항목 추출 (list항목)" DisplayName="Mail\01_GetIMAPMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="541,187" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Mail\01_GetIMAPMail.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <OutArgument x:TypeArguments="x:String" x:Key="out_mailSubject">[mailSubject]</OutArgument>
                                         <OutArgument x:TypeArguments="x:String" x:Key="out_strDate">[strDate]</OutArgument>
@@ -719,7 +719,12 @@
                                     </ui:InvokeWorkflowFile>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\01_TransactionDT생성.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="541,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="Jobs\01_TransactionDT생성.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtTransaction">[dt_TransactionData]</OutArgument>
+                                        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtTransaction">
+                                          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionData" />
+                                        </OutArgument>
+                                        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_list항목">
+                                          <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="list항목" />
+                                        </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
