@@ -12,14 +12,6 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "list항목&StateMachine_1",
-        "strDate&StateMachine_1",
-        "mailSubject&Sequence_17",
-        "strTempFile&StateMachine_1",
-        "strResultFile&StateMachine_1",
-        "listAttachment&StateMachine_1",
-        "sstrMailPW&StateMachine_1",
-        "strMailID&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
@@ -31,6 +23,18 @@
         "TransactionID&StateMachine_1",
         "dt_TransactionData&StateMachine_1",
         "ConsecutiveSystemExceptions&StateMachine_1",
+        "strMailID&StateMachine_1",
+        "sstrMailPW&StateMachine_1",
+        "listAttachment&StateMachine_1",
+        "strResultFile&StateMachine_1",
+        "strTempFile&StateMachine_1",
+        "list항목&StateMachine_1",
+        "strDate&StateMachine_1",
+        "intSuccessCnt&StateMachine_1",
+        "intFailCnt&StateMachine_1",
+        "intTotalCnt&StateMachine_1",
+        "mailSubject&StateMachine_1",
+        "listFail&StateMachine_1",
         "ShouldStop&Sequence_25"
       ],
       "ArgumentsSectionElementsOrder": [],
@@ -122,6 +126,8 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_list항목",
         "out_dtTransaction"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -226,8 +232,18 @@
     {
       "Path": "Jobs/02_CollectData.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [],
+      "VariablesSectionElementsOrder": [
+        "dtPurchase&Sequence_1",
+        "strFound&Sequence_6",
+        "strEA&Sequence_1",
+        "strCode&Sequence_1",
+        "uiFound&Sequence_8"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "io_TransactionItem",
+        "in_strResultFile"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
@@ -243,6 +259,24 @@
         "in_ConfigFile",
         "in_ConfigSheets",
         "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/03_Validation.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtExtracted&Sequence_1",
+        "dtExtractedAsc&Sequence_1",
+        "dtPurchaseAsc&Sequence_1",
+        "dtPurchase&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_dt_TransactionData",
+        "in_list항목",
+        "in_strResultFile",
+        "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
