@@ -45,7 +45,7 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dtShopping&Sequence_1"
+        "dtPurchase&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_strResultFile",
@@ -182,28 +182,16 @@
       "Path": "Mail/04_SendSMTPMail.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dateTimeDate&Sequence_1",
         "strSubject&Sequence_1",
-        "strBody&Sequence_1",
-        "strResult&Sequence_1",
-        "intTotalCnt&Sequence_1",
-        "intSuccessCnt&Sequence_1",
-        "intFailCnt&Sequence_1",
-        "strMemo&Sequence_1",
-        "strContentHTML&Sequence_1",
-        "strRowHTML&Sequence_1",
-        "strCellValue&Sequence_7",
-        "strCellHTML&Sequence_7"
+        "strBody&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_listAttachment",
         "in_strReciever",
         "in_sstrMailPW",
         "in_strMailID",
-        "in_strResultFile",
         "in_Config",
-        "in_strDate",
-        "in_dtTransactionData",
-        "in_dtBest"
+        "in_strDate"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -233,13 +221,13 @@
       "Path": "Jobs/02_CollectData.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dtPurchase&Sequence_1",
         "strFound&Sequence_6",
         "strEA&Sequence_1",
         "strCode&Sequence_1",
         "uiFound&Sequence_8"
       ],
       "ArgumentsSectionElementsOrder": [
+        "out_dtPurchase",
         "in_Config",
         "io_TransactionItem",
         "in_strResultFile"
@@ -267,14 +255,14 @@
       "Path": "Jobs/03_Validation.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "idx&Sequence_1",
         "dtExtracted&Sequence_1",
         "dtExtractedAsc&Sequence_1",
-        "dtPurchaseAsc&Sequence_1",
-        "dtPurchase&Sequence_1"
+        "dtPurchaseAsc&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_dt_TransactionData",
-        "in_list항목",
+        "in_TransactionItem",
+        "in_dtPurchase",
         "in_strResultFile",
         "in_Config"
       ],

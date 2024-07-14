@@ -22450,15 +22450,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ICT CoC\\.nuget\\packages\\": {}
+    "C:\\Users\\Park\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "RE-Framework_RPA08_견적서메일발송_박채연",
       "projectName": "RE-Framework_RPA08_견적서메일발송_박채연",
-      "projectPath": "C:\\Users\\ICT CoC\\Documents\\REFramework\\RE-Framework_RPA08_견적서메일발송_박채연\\.local",
-      "packagesPath": "C:\\Users\\ICT CoC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ICT CoC\\Documents\\REFramework\\RE-Framework_RPA08_견적서메일발송_박채연\\.local"
+      "projectPath": "C:\\Users\\Park\\Downloads\\REFramework-main\\REFramework-main\\RE-Framework_RPA08_견적서메일발송_박채연\\.local",
+      "packagesPath": "C:\\Users\\Park\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Park\\Downloads\\REFramework-main\\REFramework-main\\RE-Framework_RPA08_견적서메일발송_박채연\\.local"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -22509,7 +22509,7 @@
             "version": "[3.13.2, 3.13.2]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\ICT CoC\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Park\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
