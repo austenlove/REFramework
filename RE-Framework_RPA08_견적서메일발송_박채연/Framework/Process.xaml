@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1047,2886</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1047,3232</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -128,7 +128,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="612,2821" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="612,3167" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtPurchase" />
     </Sequence.Variables>
@@ -147,6 +147,7 @@
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtPurchase">[dtPurchase]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="550,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;✅장바구니 담기 완료. 장바구니 유효성 검사 시작.&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\03_Validation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="550,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Jobs\03_Validation.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
@@ -155,6 +156,7 @@
         <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[io_TransactionItem]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="550,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;✅장바구니 유효성 검사 완료.&quot;]" />
     <Sequence DisplayName="확인된 장바구니 견적서 다운로드 | Sequence" sap:VirtualizedContainerService.HintSize="550,2118" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -174,12 +176,12 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Checkbox'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d4ef08d-f0f6-4f4a-9d7a-519e14430dda" Version="V3">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '전체선택 Checkbox'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d4ef08d-f0f6-4f4a-9d7a-519e14430dda" Version="V3">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://www.officedepot.co.kr/cart/myCart.do#link" DesignTimeRectangle="306, 733, 16, 17" DesignTimeScaleFactor="1.25" ElementType="CheckBox" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='check_all' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='check_all' type='checkbox' tag='INPUT' class='check_all' aaname='전체 선택하기' /&gt;" Guid="eb7fc589-cc2f-487c-9fc2-79fe06092172" InformativeScreenshot="0af638ec4a26f45ad1317916fd13c43b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='오피스디포 공식쇼핑몰' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
                 </uix:NClick.Target>
               </uix:NClick>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'IMG'" sap:VirtualizedContainerService.HintSize="354,182" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d4ef08d-f0f6-4f4a-9d7a-519e14430dda" Version="V3">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '견적서'" sap:VirtualizedContainerService.HintSize="354,182" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d4ef08d-f0f6-4f4a-9d7a-519e14430dda" Version="V3">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://www.officedepot.co.kr/cart/myCart.do#link" DesignTimeRectangle="282, 810, 110, 55" DesignTimeScaleFactor="1.25" ElementType="Icon" FullSelectorArgument="&lt;webctrl aaname='견적서' parentid='container' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='견적서' parentid='container' tag='IMG' type='' class='' /&gt;" Guid="9720454d-894f-4a39-b2be-d15cc9b3948b" InformativeScreenshot="e1f221ebdaaf591a7bae7300c3ffc164.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='오피스디포 공식쇼핑몰' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
                 </uix:NClick.Target>
@@ -259,13 +261,12 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <Sequence sap:VirtualizedContainerService.HintSize="416,374" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence sap:VirtualizedContainerService.HintSize="416,201" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;⛔견적서 파일을 저장하지 못했습니다. 저장 경로를 확인하세요.&quot;]" />
                 <Throw Exception="[new BusinessRuleException(&quot;⛔견적서 파일을 저장하지 못했습니다. 저장 경로를 확인하세요.&quot;)]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </Sequence>
             </ActivityAction>
