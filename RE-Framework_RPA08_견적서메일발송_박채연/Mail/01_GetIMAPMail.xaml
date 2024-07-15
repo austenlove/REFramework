@@ -7,12 +7,11 @@
     <x:Property Name="in_sstrMailPW" Type="InArgument(ss:SecureString)" />
     <x:Property Name="io_strTempFile" Type="InOutArgument(x:String)" />
     <x:Property Name="out_list항목" Type="OutArgument(scg:List(x:String))" />
-    <x:Property Name="in_strResultFile" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1047,1911</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1047,2615</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_02_IMAP_메일수신_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -119,7 +118,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="&#xA;[출력 변수]&#xA;mailSubject&#xA;mailBody&#xA;strDate (이메일에 기재된 날짜)" DisplayName="_02_IMAP_메일수신" sap:VirtualizedContainerService.HintSize="784,1846" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="&#xA;[출력 변수]&#xA;mailSubject&#xA;mailBody&#xA;strDate (이메일에 기재된 날짜)" DisplayName="_02_IMAP_메일수신" sap:VirtualizedContainerService.HintSize="784,2550" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mailMessages" />
       <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="filePaths" />
@@ -234,19 +233,19 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:ForEach x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="1. 파일이 여러 개인 경우 → 파일명에 strDate를 포함하는 파일을 선택적으로 찾아서 다운로드&#xA;2. 찾은 파일 결과 폴더로 복사 / 파일 내 시트명 list항목으로 수집" CurrentIndex="[idx]" DisplayName="파일명/경로 추출 | For Each" sap:VirtualizedContainerService.HintSize="722,174" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[filePaths]">
+    <ui:ForEach x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="1. 파일이 여러 개인 경우 → 파일명에 strDate를 포함하는 파일을 선택적으로 찾아서 다운로드&#xA;2. 파일 내 시트명들을 list항목으로 수집" CurrentIndex="[idx]" DisplayName="작업지시서 파일 경로 찾기(strTempFile) | For Each" sap:VirtualizedContainerService.HintSize="722,850" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[filePaths]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="currentFile" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="592,783" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="592,612" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If sap2010:Annotation.AnnotationText="" Condition="[Path.GetFileName(currentFile).Contains(out_strDate.Replace(&quot;/&quot;, &quot;&quot;))]" sap:VirtualizedContainerService.HintSize="530,695" sap2010:WorkflowViewState.IdRef="If_2">
+            <If sap2010:Annotation.AnnotationText="" Condition="[Path.GetFileName(currentFile).Contains(out_strDate.Replace(&quot;/&quot;, &quot;&quot;))]" sap:VirtualizedContainerService.HintSize="530,524" sap2010:WorkflowViewState.IdRef="If_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -255,7 +254,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,478" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,307" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -269,15 +268,32 @@
                       <InArgument x:TypeArguments="x:String">[in_Config("요청").ToString + Path.GetFileName(currentFile)]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:CopyFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="2.작업폴더로 엑셀 파일 복사&#xA;*이미 파일이 있는 경우 덮어쓰기" Destination="[in_strResultFile]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,228" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[io_strTempFile]">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="416,193" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:CopyFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="2.작업폴더로 엑셀 파일 복사&#xA;*이미 파일이 있는 경우 덮어쓰기" Destination="[in_strResultFile]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="354,105" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[io_strTempFile]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CopyFile>
+                      </Sequence>
+                    </ui:CommentOut.Body>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </ui:CopyFile>
+                  </ui:CommentOut>
                   <ui:Break sap:VirtualizedContainerService.HintSize="434,48" sap2010:WorkflowViewState.IdRef="Break_2" />
                 </Sequence>
               </If.Then>
@@ -298,21 +314,12 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
     <ui:LogMessage sap2010:Annotation.AnnotationText="템플릿파일명 strTempFile" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="722,88" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;✅템플릿파일 경로 : &quot; + io_strTempFile]">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:LogMessage>
-    <ui:LogMessage sap2010:Annotation.AnnotationText="결과파일명 strResultFile" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="722,88" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;✅결과 파일 경로 : &quot; + in_strResultFile]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -333,7 +340,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="626,879" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" WorkbookPath="[in_strResultFile]">
+            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="626,879" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" WorkbookPath="[io_strTempFile]">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
@@ -396,11 +403,11 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <ui:LogMessage sap2010:Annotation.AnnotationText="list항목 확인" DisplayName="list항목 확인 | Log Message" sap:VirtualizedContainerService.HintSize="722,79" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;✅list항목 개수 : &quot; + out_list항목.Count.ToString]">
+    <ui:LogMessage sap2010:Annotation.AnnotationText="list항목 확인" DisplayName="list항목 확인 | Log Message" sap:VirtualizedContainerService.HintSize="722,195" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;✅list항목 개수 : &quot; + out_list항목.Count.ToString]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
