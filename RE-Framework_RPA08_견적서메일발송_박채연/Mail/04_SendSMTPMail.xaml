@@ -5,6 +5,9 @@
     <x:Property Name="in_strMailID" Type="InArgument(x:String)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_strDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_intTotalCnt" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_intSuccessCnt" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_intFailCnt" Type="InArgument(x:Int32)" />
   </x:Members>
   <this:_04_SMTP_SendMail.in_strReciever>
     <InArgument x:TypeArguments="x:String" />
@@ -18,7 +21,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1047,1583</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1047,1614</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_04_SMTP_SendMail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -129,11 +132,12 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_04_SendSMTPMail" sap:VirtualizedContainerService.HintSize="603,1518" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_04_SendSMTPMail" sap:VirtualizedContainerService.HintSize="603,1549" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strSubject" />
       <Variable x:TypeArguments="x:String" Name="strBody" />
       <Variable x:TypeArguments="s:DateTime" Name="dateTimeDate" />
+      <Variable x:TypeArguments="x:String" Name="strResult" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -148,13 +152,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <Sequence DisplayName="메일 제목 | Sequence" sap:VirtualizedContainerService.HintSize="541,505" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="메일 제목 | Sequence" sap:VirtualizedContainerService.HintSize="541,536" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+      <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
@@ -165,6 +169,14 @@
                 <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(in_strDate, "yyyy/MM/dd", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strResult]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">["총" + in_intTotalCnt.ToString + "건 / 성공" + in_intSuccessCnt.ToString + "건 / 실패" + in_intFailCnt.ToString + "건"]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
         <sap:WorkflowViewStateService.ViewState>
@@ -173,7 +185,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
-      <ui:LogMessage sap2010:Annotation.AnnotationText="String.Format(&quot;[견적서] {0} 오피스디포 견적서&quot;, dateTimeDate.ToString(&quot;yyyy/MM/dd&quot;))" DisplayName="메일 제목 | Log Message" sap:VirtualizedContainerService.HintSize="479,206" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;✅메일 제목 : &quot; + String.Format(in_Config(&quot;Subject&quot;).ToString, dateTimeDate.ToString(&quot;yyyy/MM/dd&quot;))]">
+      <ui:LogMessage sap2010:Annotation.AnnotationText="String.Format(&quot;[견적서] {0} 오피스디포 견적서&quot;, dateTimeDate.ToString(&quot;yyyy/MM/dd&quot;), strResult)" DisplayName="메일 제목 | Log Message" sap:VirtualizedContainerService.HintSize="479,206" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;✅메일 제목 : &quot; + String.Format(in_Config(&quot;Subject&quot;).ToString, dateTimeDate.ToString(&quot;yyyy/MM/dd&quot;), strResult)]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -212,7 +224,7 @@
       </ui:MultipleAssign>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;✅첨부파일 경로 : &quot; + in_Config(&quot;결과&quot;).ToString + &quot;견적서_&quot; + Today.ToString(&quot;yyyy-MM-dd&quot;) + &quot;.pdf&quot;]" />
     </Sequence>
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="server : &quot;smtp.gmail.com&quot;&#xA;port : 587&#xA;HTML = True" Body="[String.Format(strBody, dateTimeDate.ToString(&quot;yyyy-MM-dd&quot;))]" DisplayName="Send SMTP Mail Message" Email="[in_strMailID]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="541,241" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrMailPW]" Server="smtp.gmail.com" Subject="[String.Format(in_Config(&quot;Subject&quot;).ToString, dateTimeDate.ToString(&quot;yyyy/MM/dd&quot;))]" To="[in_strReciever]">
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="server : &quot;smtp.gmail.com&quot;&#xA;port : 587&#xA;HTML = True" Body="[String.Format(strBody, dateTimeDate.ToString(&quot;yyyy-MM-dd&quot;))]" DisplayName="Send SMTP Mail Message" Email="[in_strMailID]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="541,241" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrMailPW]" Server="smtp.gmail.com" Subject="[String.Format(in_Config(&quot;Subject&quot;).ToString, dateTimeDate.ToString(&quot;yyyy/MM/dd&quot;), strResult)]" To="[in_strReciever]">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">[in_Config("결과").ToString + "견적서_" + Today.ToString("yyyy-MM-dd") + ".pdf"]</InArgument>

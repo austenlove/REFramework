@@ -28,7 +28,6 @@
         "listAttachment&StateMachine_1",
         "strResultFile&StateMachine_1",
         "strTempFile&StateMachine_1",
-        "list항목&StateMachine_1",
         "strDate&StateMachine_1",
         "intSuccessCnt&StateMachine_1",
         "intFailCnt&StateMachine_1",
@@ -48,186 +47,6 @@
         "dtPurchase&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_strResultFile",
-        "in_Config",
-        "io_TransactionItem"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Framework/GetTransactionData.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [
-        "in_TransactionNumber",
-        "in_Config",
-        "out_TransactionItem",
-        "out_TransactionField1",
-        "out_TransactionField2",
-        "out_TransactionID",
-        "io_dt_TransactionData"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Framework/SetTransactionStatus.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "QueueRetry&Sequence_17",
-        "ScreenshotPath&Sequence_17"
-      ],
-      "ArgumentsSectionElementsOrder": [
-        "in_BusinessException",
-        "in_TransactionField1",
-        "in_TransactionField2",
-        "in_TransactionID",
-        "in_SystemException",
-        "in_Config",
-        "in_TransactionItem",
-        "io_RetryNumber",
-        "io_TransactionNumber",
-        "io_ConsecutiveSystemExceptions"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Framework/RetryCurrentTransaction.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [
-        "in_Config",
-        "io_RetryNumber",
-        "io_TransactionNumber",
-        "in_SystemException",
-        "in_QueueRetry"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Framework/TakeScreenshot.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "Screenshot&Sequence_1",
-        "ScreenshotFileInfo&Sequence_1"
-      ],
-      "ArgumentsSectionElementsOrder": [
-        "in_Folder",
-        "io_FilePath"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Jobs/01_TransactionDT생성.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [
-        "in_Config",
-        "in_list항목",
-        "out_dtTransaction"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "../ICT_CoC_이메일자동화/01_메일발송.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [
-        "in_strReciever",
-        "in_sstrMailPW",
-        "in_strMailID",
-        "in_strSubject",
-        "in_strBody",
-        "in_listAttachment"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Framework/KillAllProcesses.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "listProgram&Sequence_2"
-      ],
-      "ArgumentsSectionElementsOrder": [
-        "in_Config"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Framework/CloseAllApplications.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Framework/InitAllApplications.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [
-        "in_Config"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Mail/04_SendSMTPMail.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "dateTimeDate&Sequence_1",
-        "strSubject&Sequence_1",
-        "strBody&Sequence_1"
-      ],
-      "ArgumentsSectionElementsOrder": [
-        "in_strReciever",
-        "in_sstrMailPW",
-        "in_strMailID",
-        "in_Config",
-        "in_strDate"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Mail/01_GetIMAPMail.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "filePaths&Sequence_1",
-        "idx&Sequence_1",
-        "mailMessages&Sequence_1"
-      ],
-      "ArgumentsSectionElementsOrder": [
-        "in_strResultFile",
-        "out_list항목",
-        "io_strTempFile",
-        "out_mailSubject",
-        "out_strDate",
-        "in_Config",
-        "in_strMailID",
-        "in_sstrMailPW"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "Jobs/02_CollectData.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "strFound&Sequence_6",
-        "strEA&Sequence_1",
-        "strCode&Sequence_1",
-        "uiFound&Sequence_8"
-      ],
-      "ArgumentsSectionElementsOrder": [
-        "out_dtPurchase",
         "in_Config",
         "io_TransactionItem",
         "in_strResultFile"
@@ -236,17 +55,18 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Framework/InitAllSettings.xaml",
+      "Path": "Jobs/02_CollectData.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dt_SettingsAndConstants&Sequence_5",
-        "dt_Assets&Sequence_6",
-        "AssetValue&Sequence_11"
+        "strEA&Sequence_1",
+        "strCode&Sequence_1",
+        "strFound&Sequence_6",
+        "uiFound&Sequence_8"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_ConfigFile",
-        "in_ConfigSheets",
-        "out_Config"
+        "in_strResultFile",
+        "io_TransactionItem",
+        "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -255,16 +75,44 @@
       "Path": "Jobs/03_Validation.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "idx&Sequence_1",
-        "dtExtracted&Sequence_1",
-        "dtExtractedAsc&Sequence_1",
-        "dtPurchaseAsc&Sequence_1"
+        "uiCart&Sequence_6",
+        "idx&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_TransactionItem",
-        "in_dtPurchase",
+        "in_Config",
         "in_strResultFile",
-        "in_Config"
+        "in_dtPurchase",
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/04_DownloadEstimate.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "io_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Mail/01_GetIMAPMail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "mailMessages&Sequence_1",
+        "filePaths&Sequence_1",
+        "idx&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_mailSubject",
+        "out_strDate",
+        "in_Config",
+        "in_strMailID",
+        "in_sstrMailPW",
+        "io_strTempFile"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
