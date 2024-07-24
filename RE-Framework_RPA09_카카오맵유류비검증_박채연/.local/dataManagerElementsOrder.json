@@ -12,6 +12,9 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dtEmployeeList&StateMachine_1",
+        "strResultFile&StateMachine_1",
+        "strTempFile&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
@@ -26,6 +29,118 @@
         "ShouldStop&Sequence_25"
       ],
       "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem",
+        "out_TransactionField1",
+        "out_TransactionField2",
+        "out_TransactionID",
+        "io_dt_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/Mail/02_SMTP_SendMail_Transaction.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strSubject&Sequence_1",
+        "strBody&Sequence_1",
+        "strResult&Sequence_1",
+        "strMemo&Sequence_1",
+        "strContentHTML&Sequence_1",
+        "strRowHTML&Sequence_1",
+        "strFail&Sequence_1",
+        "dtResult&Sequence_1",
+        "strContentHTML2&Sequence_1",
+        "strRowHTML2&Sequence_1",
+        "strCellValue&Sequence_7",
+        "strCellHTML&Sequence_7",
+        "strCellValue&Sequence_22",
+        "strCellHTML&Sequence_22",
+        "strCellValue2&Sequence_22",
+        "strCellHTML2&Sequence_22"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strReciever",
+        "in_sstrMailPW",
+        "in_strMailID",
+        "in_strResultFile",
+        "in_Config",
+        "in_dtTransactionData",
+        "in_listFail",
+        "in_strTempFile",
+        "in_intTotalCnt",
+        "in_intSuccessCnt",
+        "in_intFailCnt",
+        "in_dtNorth",
+        "in_dtSouth",
+        "in_strDate"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/Mail/03_SMTP_SendMail_Result.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strSubject&Sequence_1",
+        "strBody&Sequence_1",
+        "strResult&Sequence_1",
+        "strMemo&Sequence_1",
+        "strContentHTML&Sequence_1",
+        "strRowHTML&Sequence_1",
+        "strFail&Sequence_1",
+        "dtResult&Sequence_1",
+        "strContentHTML2&Sequence_1",
+        "strRowHTML2&Sequence_1",
+        "strCellValue&Sequence_7",
+        "strCellHTML&Sequence_7",
+        "strCellValue&Sequence_22",
+        "strCellHTML&Sequence_22",
+        "strCellValue2&Sequence_22",
+        "strCellHTML2&Sequence_22"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strReciever",
+        "in_sstrMailPW",
+        "in_strMailID",
+        "in_strResultFile",
+        "in_Config",
+        "in_dtTransactionData",
+        "in_listFail",
+        "in_strTempFile",
+        "in_intTotalCnt",
+        "in_intSuccessCnt",
+        "in_intFailCnt",
+        "in_dtNorth",
+        "in_dtSouth",
+        "in_strDate"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }
