@@ -3,17 +3,44 @@
     {
       "Path": null,
       "SortBy": 0,
-      "VariablesSectionElementsOrder": null,
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": null,
-      "ConstantsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
     {
       "Path": "Mail/01_SMTP_SendMail_Result.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": null,
-      "ArgumentsSectionElementsOrder": null,
-      "ConstantsSectionElementsOrder": null,
+      "VariablesSectionElementsOrder": [
+        "strErrorMsg&Sequence_1",
+        "strSubject&Sequence_1",
+        "strBody&Sequence_1",
+        "strID&Sequence_1",
+        "sstrPW&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_exception",
+        "in_intTotalCnt",
+        "in_intSuccessCnt",
+        "in_intFailCnt"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "SystemException&Sequence_1",
+        "BusinessException&Sequence_1",
+        "dtExtracted&Sequence_1",
+        "intTotalCnt&Sequence_1",
+        "intSuccessCnt&Sequence_1",
+        "intFailCnt&Sequence_1",
+        "strRef&Sequence_5"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }
   ]
