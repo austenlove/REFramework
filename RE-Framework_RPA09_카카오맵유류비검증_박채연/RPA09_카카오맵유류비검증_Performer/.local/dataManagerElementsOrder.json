@@ -12,6 +12,9 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "intTotalCnt&StateMachine_1",
+        "intSuccessCnt&StateMachine_1",
+        "intFailCnt&StateMachine_1",
         "dtEmployeeList&StateMachine_1",
         "strResultFile&StateMachine_1",
         "strTempFile&StateMachine_1",
@@ -140,6 +143,82 @@
         "in_dtNorth",
         "in_dtSouth",
         "in_strDate"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Jobs/01_CollectData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dbl대중교통금액&Sequence_1",
+        "dbl대중교통검증&Sequence_1",
+        "dbl최단검증&Sequence_1",
+        "dbl최단출근&Sequence_1",
+        "dbl최단퇴근&Sequence_1",
+        "dbl최적검증&Sequence_1",
+        "dbl최적퇴근&Sequence_1",
+        "dbl최적출근&Sequence_1",
+        "str검증도착지&Sequence_1",
+        "str거주지주소&Sequence_1",
+        "str성명&Sequence_1",
+        "str직책&Sequence_1",
+        "str현소속&Sequence_1",
+        "str직번&Sequence_1",
+        "str대중교통퇴근금액&Sequence_2",
+        "dbl대중교통퇴근금액&Sequence_2",
+        "dbl대중교통출근금액&Sequence_2",
+        "str대중교통출근금액&Sequence_10",
+        "str대중교통출근&Sequence_2",
+        "dbl대중교통출근&Sequence_2",
+        "str대중교통퇴근&Sequence_2",
+        "dbl대중교통퇴근&Sequence_2",
+        "str최단퇴근&Sequence_2",
+        "str최단출근&Sequence_2",
+        "str최적퇴근&Sequence_2",
+        "str최적출근&Sequence_7",
+        "uiEnd&Sequence_2",
+        "str지점명&Sequence_2",
+        "uiStart&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_dtEmployeeList",
+        "in_TransactionItem",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "io_dtEmployeeList",
+        "in_TransactionItem",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "QueueRetry&Sequence_17",
+        "ScreenshotPath&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BusinessException",
+        "in_TransactionField1",
+        "in_TransactionField2",
+        "in_TransactionID",
+        "in_SystemException",
+        "in_Config",
+        "in_TransactionItem",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "io_ConsecutiveSystemExceptions"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

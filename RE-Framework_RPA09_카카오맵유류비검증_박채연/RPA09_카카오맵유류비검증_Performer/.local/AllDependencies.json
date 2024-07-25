@@ -21739,15 +21739,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Park\\.nuget\\packages\\": {}
+    "C:\\Users\\sein\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "RE-Framework_RPA09_카카오맵유류비검증",
       "projectName": "RE-Framework_RPA09_카카오맵유류비검증",
-      "projectPath": "C:\\Users\\Park\\Documents\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Performer\\.local",
-      "packagesPath": "C:\\Users\\Park\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Park\\Documents\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Performer\\.local"
+      "projectPath": "C:\\Users\\sein\\Documents\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Performer\\.local",
+      "packagesPath": "C:\\Users\\sein\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sein\\Documents\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Performer\\.local"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -21783,7 +21783,7 @@
             "version": "[24.10.0, 24.10.0]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\Park\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\sein\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
