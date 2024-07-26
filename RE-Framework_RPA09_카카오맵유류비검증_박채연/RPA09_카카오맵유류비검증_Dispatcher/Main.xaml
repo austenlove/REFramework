@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1078.4,2987.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="868.8,2988" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -104,7 +104,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="800,2922.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="800,2923.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtExtracted" />
       <Variable x:TypeArguments="x:Int32" Name="intTotalCnt" />
@@ -162,7 +162,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <Sequence sap2010:Annotation.AnnotationText="1. 유류비검증_Dispatcher_temp.xlsx에서 dtExtracted 추출&#xA;2. 추출한 데이터 trim 및 strRef(참조 설정 변수)" DisplayName="데이터 추출 및 Queue 업로드 | Sequence" sap:VirtualizedContainerService.HintSize="737.6,2291.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence sap2010:Annotation.AnnotationText="1. 유류비검증_Dispatcher_temp.xlsx에서 dtExtracted 추출&#xA;2. 추출한 데이터 trim 및 strRef(참조 설정 변수)" DisplayName="데이터 추출 및 Queue 업로드 | Sequence" sap:VirtualizedContainerService.HintSize="737.6,2292" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -202,13 +202,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ExcelApplicationScope>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="[dtExtracted] 컬럼명은 가져오지 않고 열 인덱스로 기재&#xA;0 : 직번&#xA;1 : 현부점코드&#xA;2 : 현소속&#xA;3 : 직책&#xA;4 : 성명&#xA;5 : 거주지 주소" DataTable="[dtExtracted]" DisplayName="For Each Row in Extracted Work Items" sap:VirtualizedContainerService.HintSize="675.2,1750.4" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="[dtExtracted] 컬럼명은 가져오지 않고 열 인덱스로 기재&#xA;0 : 직번&#xA;1 : 현부점코드&#xA;2 : 현소속&#xA;3 : 직책&#xA;4 : 성명&#xA;5 : 거주지 주소" DataTable="[dtExtracted]" DisplayName="For Each Row in Extracted Work Items" sap:VirtualizedContainerService.HintSize="675.2,1751.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="641.6,1437.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="641.6,1438.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="strRef" />
               </Sequence.Variables>
@@ -217,15 +217,15 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="579.2,1348.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="579.2,1349.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <TryCatch.Try>
-                  <Sequence sap:VirtualizedContainerService.HintSize="542.4,1071.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence sap:VirtualizedContainerService.HintSize="542.4,1072" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign DisplayName="전체 수행 카운트 | Assign" sap:VirtualizedContainerService.HintSize="480,112.8" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign DisplayName="전체 수행 카운트 | Assign" sap:VirtualizedContainerService.HintSize="480,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[intTotalCnt]</OutArgument>
                       </Assign.To>
@@ -352,12 +352,12 @@
                     </ui:CommentOut>
                     <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="dtExtradcted를 EmployeeList_Queue에 업로드&#xA;*참조 : 직번_이름+직급_소속" ContinueOnError="False" DisplayName="Add Queue Item" FolderPath="mangoperry2015@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="480,270.4" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="EmployeeList_Queue" Reference="[strRef]">
                       <ui:AddQueueItem.ItemInformation>
-                        <InArgument x:TypeArguments="x:String" x:Key="&quot;직번&quot;">[CurrentRow(0).ToString]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="&quot;현부점코드&quot;">[CurrentRow(1).ToString]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="&quot;현소속&quot;">[CurrentRow(2).ToString]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="&quot;직책&quot;">[CurrentRow(3).ToString]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="&quot;성명&quot;">[CurrentRow(4).ToString]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="&quot;거주지 주소&quot;">[CurrentRow(5).ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="직번">[CurrentRow(0).ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="현부점코드">[CurrentRow(1).ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="현소속">[CurrentRow(2).ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="직책">[CurrentRow(3).ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="성명">[CurrentRow(4).ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="거주지 주소">[CurrentRow(5).ToString]</InArgument>
                       </ui:AddQueueItem.ItemInformation>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
