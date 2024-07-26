@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1078.4,2203.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>781.6,2203.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_04_SMTP_SendMail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -247,7 +247,7 @@
           </Sequence>
         </If.Else>
       </If>
-      <ui:LogMessage sap2010:Annotation.AnnotationText="실패 항목 리스트 확인 strFail " DisplayName="메일 본문 | Log Message" sap:VirtualizedContainerService.HintSize="529.6,196.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;✅메일 본문 : &quot; + String.Format(strBody, Today.ToString(&quot;yyy년 MM월 dd일&quot;), in_intTotalCnt.ToString, strErrorMsg)]">
+      <ui:LogMessage sap2010:Annotation.AnnotationText="" DisplayName="메일 본문 | Log Message" sap:VirtualizedContainerService.HintSize="529.6,196.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;✅메일 본문 : &quot; + String.Format(strBody, Today.ToString(&quot;yyy년 MM월 dd일&quot;), in_intTotalCnt.ToString, strErrorMsg)]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
