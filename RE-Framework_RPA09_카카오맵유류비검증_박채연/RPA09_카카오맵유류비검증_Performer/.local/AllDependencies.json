@@ -3220,19 +3220,6 @@
           "lib/netstandard1.5/System.Reflection.TypeExtensions.dll": {}
         }
       },
-      "System.Resources.Extensions/5.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Resources.Extensions.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "System.Resources.ResourceManager/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4505,18 +4492,6 @@
           }
         }
       },
-      "UiPath.FormActivityLibrary.Contracts/2.0.7": {
-        "type": "package",
-        "dependencies": {
-          "System.Resources.Extensions": "5.0.0"
-        },
-        "compile": {
-          "lib/net5.0-windows7.0/_._": {}
-        },
-        "runtime": {
-          "lib/net5.0-windows7.0/UiPath.Form.ActivityLibrary.Contracts.dll": {}
-        }
-      },
       "UiPath.ImageProcessing/23.4.0": {
         "type": "package",
         "compile": {
@@ -4824,61 +4799,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/UiPath.OpenTelemetry.Contracts.dll": {}
-        }
-      },
-      "UiPath.Persistence.Activities/1.5.9": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.23",
-          "UiPath.FormActivityLibrary.Contracts": "2.0.7-alpha.4234105",
-          "UiPath.Platform": "24.10.2",
-          "UiPath.Telemetry.Client": "1.5.3"
-        },
-        "compile": {
-          "lib/net6.0-windows7.0/_._": {}
-        },
-        "runtime": {
-          "lib/net6.0-windows7.0/UiPath.Orchestrator.Service.dll": {},
-          "lib/net6.0-windows7.0/UiPath.Persistence.Activities.dll": {},
-          "lib/net6.0-windows7.0/UiPath.Persistence.Orchestrator.Client.dll": {}
-        },
-        "resource": {
-          "lib/net6.0-windows7.0/de/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net6.0-windows7.0/es-MX/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "es-MX"
-          },
-          "lib/net6.0-windows7.0/es/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "es"
-          },
-          "lib/net6.0-windows7.0/fr/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/net6.0-windows7.0/ja/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/net6.0-windows7.0/ko/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/net6.0-windows7.0/pt-BR/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/net6.0-windows7.0/pt/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/net6.0-windows7.0/ru/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net6.0-windows7.0/tr/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/net6.0-windows7.0/zh-CN/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "zh-CN"
-          },
-          "lib/net6.0-windows7.0/zh-TW/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "zh-TW"
-          }
         }
       },
       "UiPath.Platform/24.10.2": {
@@ -8843,19 +8763,6 @@
           "lib/netstandard1.5/System.Reflection.TypeExtensions.dll": {}
         }
       },
-      "System.Resources.Extensions/5.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Resources.Extensions.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "System.Resources.ResourceManager/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -10030,18 +9937,6 @@
           }
         }
       },
-      "UiPath.FormActivityLibrary.Contracts/2.0.7": {
-        "type": "package",
-        "dependencies": {
-          "System.Resources.Extensions": "5.0.0"
-        },
-        "compile": {
-          "lib/net5.0-windows7.0/_._": {}
-        },
-        "runtime": {
-          "lib/net5.0-windows7.0/UiPath.Form.ActivityLibrary.Contracts.dll": {}
-        }
-      },
       "UiPath.ImageProcessing/23.4.0": {
         "type": "package",
         "compile": {
@@ -10349,61 +10244,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/UiPath.OpenTelemetry.Contracts.dll": {}
-        }
-      },
-      "UiPath.Persistence.Activities/1.5.9": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.23",
-          "UiPath.FormActivityLibrary.Contracts": "2.0.7-alpha.4234105",
-          "UiPath.Platform": "24.10.2",
-          "UiPath.Telemetry.Client": "1.5.3"
-        },
-        "compile": {
-          "lib/net6.0-windows7.0/_._": {}
-        },
-        "runtime": {
-          "lib/net6.0-windows7.0/UiPath.Orchestrator.Service.dll": {},
-          "lib/net6.0-windows7.0/UiPath.Persistence.Activities.dll": {},
-          "lib/net6.0-windows7.0/UiPath.Persistence.Orchestrator.Client.dll": {}
-        },
-        "resource": {
-          "lib/net6.0-windows7.0/de/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net6.0-windows7.0/es-MX/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "es-MX"
-          },
-          "lib/net6.0-windows7.0/es/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "es"
-          },
-          "lib/net6.0-windows7.0/fr/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/net6.0-windows7.0/ja/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/net6.0-windows7.0/ko/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/net6.0-windows7.0/pt-BR/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/net6.0-windows7.0/pt/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/net6.0-windows7.0/ru/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net6.0-windows7.0/tr/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/net6.0-windows7.0/zh-CN/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "zh-CN"
-          },
-          "lib/net6.0-windows7.0/zh-TW/UiPath.Persistence.Activities.resources.dll": {
-            "locale": "zh-TW"
-          }
         }
       },
       "UiPath.Platform/24.10.2": {
@@ -17440,27 +17280,6 @@
         "system.reflection.typeextensions.nuspec"
       ]
     },
-    "System.Resources.Extensions/5.0.0": {
-      "sha512": "KBiqY/+W6hWVwucHBHO76JkgBGyawlxCcP946MhK8dNjalaBgZkyHaux8ko58PENTqQHHjoDa7cfIkAchfJPPA==",
-      "type": "package",
-      "path": "system.resources.extensions/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "build/net461/System.Resources.Extensions.targets",
-        "lib/net461/System.Resources.Extensions.dll",
-        "lib/net461/System.Resources.Extensions.xml",
-        "lib/netstandard2.0/System.Resources.Extensions.dll",
-        "lib/netstandard2.0/System.Resources.Extensions.xml",
-        "system.resources.extensions.5.0.0.nupkg.sha512",
-        "system.resources.extensions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Resources.ResourceManager/4.3.0": {
       "sha512": "/zrcPkkWdZmI4F92gL/TPumP98AVDu/Wxr3CSJGQQ+XN6wbRZcyfSKVoPo17ilb3iOr0cCRqJInGwNMolqhS8A==",
       "type": "package",
@@ -20097,20 +19916,6 @@
         "uipath.excel.activities.nuspec"
       ]
     },
-    "UiPath.FormActivityLibrary.Contracts/2.0.7": {
-      "sha512": "ORXD1G90bOPkCUE1vUlH7853Q42lA71U54th6dY3JZHHoHSvd1m2kN2x5eUcDeHI+CF9YVJJg6x/Y0qLGFBvRw==",
-      "type": "package",
-      "path": "uipath.formactivitylibrary.contracts/2.0.7",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net461/UiPath.Form.ActivityLibrary.Contracts.dll",
-        "lib/net5.0-windows7.0/UiPath.Form.ActivityLibrary.Contracts.dll",
-        "lib/net5.0/UiPath.Form.ActivityLibrary.Contracts.dll",
-        "uipath.formactivitylibrary.contracts.2.0.7.nupkg.sha512",
-        "uipath.formactivitylibrary.contracts.nuspec"
-      ]
-    },
     "UiPath.ImageProcessing/23.4.0": {
       "sha512": "riU8a5oAisvhhxciV++7pmsTNWcGtg2AiytNu+ttz7IZiCz9VHS1jlh5uzKvkUlDCgtShuExSZ5eOEVlfjTWwQ==",
       "type": "package",
@@ -20744,75 +20549,6 @@
         "lib/netstandard2.0/UiPath.OpenTelemetry.Contracts.dll",
         "uipath.opentelemetry.contracts.2.1.3.nupkg.sha512",
         "uipath.opentelemetry.contracts.nuspec"
-      ]
-    },
-    "UiPath.Persistence.Activities/1.5.9": {
-      "sha512": "7Ut5RnOtzlq3prGgkti452x8gPo5+fqbaC9zAToz4W/bZUrvRS14cloNuDNtUHiPWT7GJLNXxVb+JGlyKKbGoA==",
-      "type": "package",
-      "path": "uipath.persistence.activities/1.5.9",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net461/UiPath.Orchestrator.Service.dll",
-        "lib/net461/UiPath.Persistence.Activities.Design.dll",
-        "lib/net461/UiPath.Persistence.Activities.dll",
-        "lib/net461/UiPath.Persistence.Orchestrator.Client.dll",
-        "lib/net461/de/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/de/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/es-MX/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/es-MX/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/es/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/es/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/fr/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/fr/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/ja/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/ja/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/ko/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/ko/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/pt-BR/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/pt-BR/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/pt/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/pt/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/ru/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/ru/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/tr/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/tr/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/zh-CN/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/zh-CN/UiPath.Persistence.Activities.resources.dll",
-        "lib/net461/zh-TW/UiPath.Persistence.Activities.Design.resources.dll",
-        "lib/net461/zh-TW/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/UiPath.Orchestrator.Service.dll",
-        "lib/net6.0-windows7.0/UiPath.Persistence.Activities.dll",
-        "lib/net6.0-windows7.0/UiPath.Persistence.Orchestrator.Client.dll",
-        "lib/net6.0-windows7.0/de/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/es-MX/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/es/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/fr/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/ja/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/ko/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/pt-BR/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/pt/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/ru/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/tr/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/zh-CN/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0-windows7.0/zh-TW/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/UiPath.Orchestrator.Service.dll",
-        "lib/net6.0/UiPath.Persistence.Activities.dll",
-        "lib/net6.0/UiPath.Persistence.Orchestrator.Client.dll",
-        "lib/net6.0/de/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/es-MX/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/es/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/fr/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/ja/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/ko/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/pt-BR/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/pt/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/ru/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/tr/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/zh-CN/UiPath.Persistence.Activities.resources.dll",
-        "lib/net6.0/zh-TW/UiPath.Persistence.Activities.resources.dll",
-        "uipath.persistence.activities.1.5.9.nupkg.sha512",
-        "uipath.persistence.activities.nuspec"
       ]
     },
     "UiPath.Platform/24.10.2": {
@@ -21732,7 +21468,6 @@
     "net8.0-windows7.0": [
       "UiPath.Excel.Activities >= 2.23.4 <= 2.23.4",
       "UiPath.Mail.Activities >= 1.22.1 <= 1.22.1",
-      "UiPath.Persistence.Activities >= 1.5.9 <= 1.5.9",
       "UiPath.System.Activities >= 24.3.1 <= 24.3.1",
       "UiPath.Testing.Activities >= 24.10.0 <= 24.10.0",
       "UiPath.UIAutomation.Activities >= 24.10.0 <= 24.10.0"
@@ -21743,8 +21478,8 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "RE-Framework_RPA09_카카오맵유류비검증",
-      "projectName": "RE-Framework_RPA09_카카오맵유류비검증",
+      "projectUniqueName": "RE-Framework_RPA09_카카오맵유류비검증_Performer",
+      "projectName": "RE-Framework_RPA09_카카오맵유류비검증_Performer",
       "projectPath": "C:\\Users\\sein\\Documents\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Performer\\.local",
       "packagesPath": "C:\\Users\\sein\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\sein\\Documents\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Performer\\.local"
@@ -21761,11 +21496,6 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[1.22.1, 1.22.1]"
-          },
-          "UiPath.Persistence.Activities": {
-            "include": "Runtime",
-            "target": "Package",
-            "version": "[1.5.9, 1.5.9]"
           },
           "UiPath.System.Activities": {
             "include": "Runtime",
@@ -21791,18 +21521,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "UiPath.Persistence.Activities 1.5.9 depends on UiPath.FormActivityLibrary.Contracts (>= 2.0.7-alpha.4234105) but UiPath.FormActivityLibrary.Contracts 2.0.7-alpha.4234105 was not found. An approximate best match of UiPath.FormActivityLibrary.Contracts 2.0.7 was resolved.",
-      "libraryId": "UiPath.FormActivityLibrary.Contracts",
-      "targetGraphs": [
-        "net8.0-windows7.0",
-        "net8.0-windows7.0/win-x64"
-      ]
-    }
-  ]
+  }
 }

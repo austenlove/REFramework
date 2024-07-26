@@ -151,6 +151,14 @@
       "Path": "Jobs/01_CollectData.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "ExtractDataTable&Sequence_22",
+        "dbl대중교통출근&Sequence_1",
+        "dbl대중교통출근금액&Sequence_1",
+        "dbl대중교통퇴근&Sequence_1",
+        "dbl대중교통퇴근금액&Sequence_1",
+        "ui지점명&Sequence_2",
+        "ExtractDataTable&Sequence_10",
+        "ExtractDataTable&Sequence_11",
         "dbl대중교통금액&Sequence_1",
         "dbl대중교통검증&Sequence_1",
         "dbl최단검증&Sequence_1",
@@ -165,21 +173,11 @@
         "str직책&Sequence_1",
         "str현소속&Sequence_1",
         "str직번&Sequence_1",
-        "str대중교통퇴근금액&Sequence_2",
-        "dbl대중교통퇴근금액&Sequence_2",
-        "dbl대중교통출근금액&Sequence_2",
-        "str대중교통출근금액&Sequence_10",
-        "str대중교통출근&Sequence_2",
-        "dbl대중교통출근&Sequence_2",
-        "str대중교통퇴근&Sequence_2",
-        "dbl대중교통퇴근&Sequence_2",
         "str최단퇴근&Sequence_2",
         "str최단출근&Sequence_2",
         "str최적퇴근&Sequence_2",
         "str최적출근&Sequence_7",
-        "uiEnd&Sequence_2",
-        "str지점명&Sequence_2",
-        "uiStart&Sequence_2"
+        "str지점명&Sequence_2"
       ],
       "ArgumentsSectionElementsOrder": [
         "io_dtEmployeeList",
@@ -219,6 +217,45 @@
         "io_RetryNumber",
         "io_TransactionNumber",
         "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Mail/02_SMTP_SendMail_Result.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "sstrPW&Sequence_1",
+        "strID&Sequence_1",
+        "strSubject&Sequence_1",
+        "strBody&Sequence_1",
+        "strResult&Sequence_1",
+        "strMemo&Sequence_1",
+        "strContentHTML&Sequence_1",
+        "strRowHTML&Sequence_1",
+        "strCellValue&Sequence_7",
+        "strCellHTML&Sequence_7"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strReciever",
+        "in_strResultFile",
+        "in_Config",
+        "in_intTotalCnt",
+        "in_intSuccessCnt",
+        "in_intFailCnt",
+        "in_dtEmployeeList"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "listProgram&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

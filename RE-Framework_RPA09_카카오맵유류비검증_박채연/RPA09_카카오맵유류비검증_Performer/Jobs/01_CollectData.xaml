@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="_01_CollectData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="_01_CollectData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1008,865.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1019.2,6273.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_01_CollectData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -54,6 +54,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -121,7 +122,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_01_CollectData" sap:VirtualizedContainerService.HintSize="518.4,800.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_01_CollectData" sap:VirtualizedContainerService.HintSize="945.6,6208.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str직번" />
       <Variable x:TypeArguments="x:String" Name="str현소속" />
@@ -137,41 +138,37 @@
       <Variable x:TypeArguments="x:Double" Name="dbl최단검증" />
       <Variable x:TypeArguments="x:Double" Name="dbl대중교통검증" />
       <Variable x:TypeArguments="x:Double" Name="dbl대중교통금액" />
+      <Variable x:TypeArguments="x:Double" Name="dbl대중교통출근" />
+      <Variable x:TypeArguments="x:Double" Name="dbl대중교통출근금액" />
+      <Variable x:TypeArguments="x:Double" Name="dbl대중교통퇴근" />
+      <Variable x:TypeArguments="x:Double" Name="dbl대중교통퇴근금액" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,712" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="883.2,6120" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="416,388" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence sap:VirtualizedContainerService.HintSize="846.4,5842.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 카카오맵" sap:VirtualizedContainerService.HintSize="353.6,56.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: 카카오맵" sap:VirtualizedContainerService.HintSize="784,5511.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="604,2324" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="750.4,5262.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="str지점명" />
-                    <Variable x:TypeArguments="ui:UiElement" Name="uiStart" />
-                    <Variable x:TypeArguments="ui:UiElement" Name="uiEnd" />
                     <Variable x:TypeArguments="x:String" Name="str최적퇴근" />
                     <Variable x:TypeArguments="x:String" Name="str최단출근" />
                     <Variable x:TypeArguments="x:String" Name="str최단퇴근" />
-                    <Variable x:TypeArguments="x:Double" Name="dbl대중교통퇴근" />
-                    <Variable x:TypeArguments="x:String" Name="str대중교통퇴근" />
-                    <Variable x:TypeArguments="x:Double" Name="dbl대중교통출근" />
-                    <Variable x:TypeArguments="x:String" Name="str대중교통출근" />
-                    <Variable x:TypeArguments="x:Double" Name="dbl대중교통출근금액" />
-                    <Variable x:TypeArguments="x:Double" Name="dbl대중교통퇴근금액" />
-                    <Variable x:TypeArguments="x:String" Name="str대중교통퇴근금액" />
+                    <Variable x:TypeArguments="ui:UiElement" Name="ui지점명" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -179,7 +176,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign DisplayName="변수 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="541.6,336.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign DisplayName="변수 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="688,336.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
@@ -243,10 +240,195 @@
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '길찾기'" sap:VirtualizedContainerService.HintSize="541.6,56.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
+                  <ui:MultipleAssign DisplayName="변수 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="688,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl최적출근]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_41">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl최적퇴근]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_42">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl최적검증]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <ui:MultipleAssign DisplayName="변수 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="688,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_43">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl최단출근]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_44">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl최단퇴근]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_45">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl최단검증]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <ui:MultipleAssign DisplayName="변수 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="688,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_46">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl대중교통출근]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_47">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl대중교통퇴근]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_48">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl대중교통검증]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">0</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <Sequence DisplayName="데이터 필드 유효성 검사 | Sequence" sap:VirtualizedContainerService.HintSize="688,56.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If Condition="[String.IsNullOrWhiteSpace(str현소속)]" DisplayName="현소속 필드 유효성 검사 | If" sap:VirtualizedContainerService.HintSize="387.2,56.8" sap2010:WorkflowViewState.IdRef="If_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Throw DisplayName="Throw ★ 예외처리" Exception="[new BusinessRuleException(&quot;⚠️소속 정보를 찾을 수 없습니다.&quot;)]" sap:VirtualizedContainerService.HintSize="353.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <If Condition="[String.IsNullOrWhiteSpace(str거주지주소)]" DisplayName="거주지 주소 유효성 검사 | If" sap:VirtualizedContainerService.HintSize="387.2,49.6" sap2010:WorkflowViewState.IdRef="If_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.4" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Throw DisplayName="Throw ★ 예외처리" Exception="[new BusinessRuleException(&quot;⚠️거주지 주소를 찾을 수 없습니다.&quot;)]" sap:VirtualizedContainerService.HintSize="353.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_6" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="False" DisplayName="Click '길찾기'" sap:VirtualizedContainerService.HintSize="688,56.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="125, 385, 70, 38" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='search.tab2' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='search.tab2' tag='A' type='' class='mainmenutab' aaname='길찾기' check:innerText='길찾기' /&gt;" Guid="a6214f43-dbe2-46a6-a61b-11f3bde777a4" InformativeScreenshot="8c848ff3ddbb8841c989fabd93a54f6c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
                     </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="엘리먼트 'SPAN'" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Target>
+                          <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="37, 479, 12, 12" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl parentid='info.route.searchBox.list' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='info.route.searchBox.list' tag='SPAN' type='' class='title origin' aaname='' /&gt;" Guid="d8ebf7ef-1789-4359-95e5-0f018aaeac64" InformativeScreenshot="a9c300b33f1476455bb87752744098b3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                        </uix:VerifyExecutionOptions.Target>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -254,7 +436,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NClick>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into str거주지주소" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="541.6,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Text="[str거주지주소 + &quot;[k(enter)]&quot;]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into str거주지주소" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="688,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Text="[str거주지주소 + &quot;[k(enter)]&quot;]" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="85, 463, 291, 44" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='info.route.waypointSuggest.input0' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='info.route.waypointSuggest.input0' tag='INPUT' type='text' class='input' aaname='검색어 입력' /&gt;" Guid="dd15dde8-fb77-434b-b43b-0e569c8dddc0" InformativeScreenshot="560d05222cf6d3ab25fd498c3ddaef4e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
                     </uix:NTypeInto.Target>
@@ -265,39 +447,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
-                  <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="uiStart" ContinueOnError="False" DisplayName="Find Element str거주지주소" FoundElement="[uiStart]" sap:VirtualizedContainerService.HintSize="541.6,88" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
-                    <ui:WaitUiElementAppear.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1647a983-edad-4444-ad42-e8092682b1fc" InformativeScreenshot="85420a7872eef8ca1a69dc4229005482" Selector="[string.Format(&quot;&lt;webctrl class='name' parentid='info.flagsearch.address.list' tag='SPAN' aaname='{0}' /&gt;&quot;, str거주지주소)]">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:WaitUiElementAppear.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:WaitUiElementAppear>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click uiStart" sap:VirtualizedContainerService.HintSize="541.6,56.8" sap2010:WorkflowViewState.IdRef="NClick_9" InUiElement="[uiStart]" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
-                    <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="34, 777, 383, 24" DesignTimeScaleFactor="1.25" ElementType="Text" Guid="8e719d90-688e-468d-9041-85d853d725fc" InformativeScreenshot="cfc13ab5213128e277413a062e54d01d.png" Version="V4" Visibility="Interactive" />
-                    </uix:NClick.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </uix:NClick>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into str지점명" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="541.6,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Text="[str지점명 + &quot;[k(enter)]&quot;]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="0.5" DisplayName="Type Into str지점명" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="688,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Text="[str지점명 + &quot;[k(enter)]&quot;]" Version="V3">
                     <uix:NTypeInto.Target>
-                      <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="85, 508, 291, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='info.route.waypointSuggest.input1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='info.route.waypointSuggest.input1' tag='INPUT' type='text' class='input' aaname='검색어 입력' /&gt;" Guid="c65ba1fe-6658-4453-87de-c85d78fc1c00" InformativeScreenshot="b40ebeb401b6d706e6c608d160eef546.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                      <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="85, 508, 291, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='info.route.waypointSuggest.input1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='info.route.waypointSuggest.input1' tag='INPUT' type='text' class='input' aaname='검색어 입력' /&gt;" Guid="e996c3d3-0c03-4160-a38a-f44873e02475" InformativeScreenshot="261970cdcf400ca58b07ab9bfdbbd25d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="443, 508, 45, 45" ElementType="Text" FullSelectorArgument="&lt;webctrl id='info.route.searchBox.clearVia' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='info.route.searchBox.clearVia' tag='A' type='' class='btn_roadsearch clearVia' aaname='모두 지우기' check:innerText='모두 지우기' /&gt;" Guid="ca7b7898-f6d2-4e75-a541-540c9dd27d32" SearchSteps="Selector, FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -306,55 +464,85 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
-                  <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="uiEnd" ContinueOnError="False" DisplayName="Find Element 도착지" FoundElement="[uiEnd]" sap:VirtualizedContainerService.HintSize="541.6,88" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
-                    <ui:WaitUiElementAppear.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aa65582e-b1ac-4087-819d-384968840776" InformativeScreenshot="e5caa120a9ccf1d1adba8f48b3a3b6f1" Selector="[string.Format(&quot;&lt;webctrl aaname='{0}' class='INACTIVE' parentid='info.flagsearch.place.list' tag='A' /&gt;&quot;, str지점명)]">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:WaitUiElementAppear.Target>
+                  <Sequence DisplayName="검증도착지 찾기 | Sequence" sap:VirtualizedContainerService.HintSize="688,1261.6" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </ui:WaitUiElementAppear>
-                  <uix:NGetText sap2010:Annotation.AnnotationText="str검증도착지 추출" DisplayName="Get Text str검증도착지" sap:VirtualizedContainerService.HintSize="541.6,88" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" TextString="[str검증도착지]" Version="V3">
-                    <uix:NGetText.Target>
-                      <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="34, 685, 329, 21" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='경기 김포시 통진읍 마송1로84번길 90' class='address' parentid='info.flagsearch.place.list' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='address' parentid='info.flagsearch.place.list' tag='SPAN' type='' /&gt;" Guid="2db5d28c-c49d-4873-897e-60f30b5e75b6" ImageBase64="" InformativeScreenshot="80d8737bc1d6cdc61dacb65b709c178a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                            <uix:Target DesignTimeRectangle="54, 652, 181, 27" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' class='INACTIVE' parentid='info.flagsearch.place.list' tag='A' /&gt;&quot;, str지점명)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' class='INACTIVE' parentid='info.flagsearch.place.list' tag='A' type='' check:innerText='' /&gt;&quot;, str지점명)]" Guid="3f981645-9329-4c0d-b548-336583a3441b" ImageBase64="" SearchSteps="Selector, FuzzySelector" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:NGetText.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </uix:NGetText>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 도착지" sap:VirtualizedContainerService.HintSize="541.6,56.8" sap2010:WorkflowViewState.IdRef="NClick_12" InUiElement="[uiEnd]" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
-                    <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="34, 777, 383, 24" DesignTimeScaleFactor="1.25" ElementType="Text" Guid="8e719d90-688e-468d-9041-85d853d725fc" InformativeScreenshot="cfc13ab5213128e277413a062e54d01d.png" Version="V4" Visibility="Interactive" />
-                    </uix:NClick.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </uix:NClick>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 자가용" sap:VirtualizedContainerService.HintSize="541.6,56.8" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
+                    <uix:NExtractData sap2010:Annotation.AnnotationText="0 : 지점명&#xD;&#xA;1 : 주소" AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='지점명'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='주소'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='strong' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='3' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="625.6,233.6" sap2010:WorkflowViewState.IdRef="NExtractData_3" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
+                      <uix:NExtractData.Target>
+                        <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="9, 792, 467, 784" DesignTimeScaleFactor="1.25" ElementType="List" FullSelectorArgument="&lt;webctrl id='info.flagsearch.place.list' tag='UL' /&gt;" Guid="13470d37-c607-41e8-bfa5-250f8f887be4" InformativeScreenshot="d6c4f6adb05ac627e2499bd86ca2bb01.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                      </uix:NExtractData.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NExtractData>
+                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="625.6,905.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                      <ui:ForEachRow.Body>
+                        <ActivityAction x:TypeArguments="sd:DataRow">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="592,715.2" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If Condition="[CurrentRow(&quot;지점명&quot;).ToString.Contains(str지점명)]" sap:VirtualizedContainerService.HintSize="529.6,626.4" sap2010:WorkflowViewState.IdRef="If_3">
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,440" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str검증도착지]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[CurrentRow("주소").ToString.Trim]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 검증도착지" sap:VirtualizedContainerService.HintSize="433.6,189.6" sap2010:WorkflowViewState.IdRef="NClick_27" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="54, 712, 181, 27" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' class='INACTIVE' parentid='info.flagsearch.place.list' tag='A' /&gt;&quot;, str지점명)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' class='INACTIVE' parentid='info.flagsearch.place.list' tag='A' type='' check:innerText='IBK기업은행 김포통진' /&gt;&quot;, str지점명)]" Guid="d24d0a83-bf5e-4206-b47f-2d9172c7172d" ImageBase64="" InformativeScreenshot="b09116340a906aa33472d121cdcd9a40.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                                    </uix:NClick.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </uix:NClick>
+                                  <ui:Break sap:VirtualizedContainerService.HintSize="433.6,48" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEachRow.Body>
+                    </ui:ForEachRow>
+                  </Sequence>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 자가용" sap:VirtualizedContainerService.HintSize="688,56.8" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="82, 563, 88, 65" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='cartab' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='cartab' tag='A' type='' class='car car-active' aaname='' /&gt;" Guid="c3d6c66c-ac74-4b92-a710-82e6e390e119" InformativeScreenshot="82d01fed1d4ae161381a56ecd999db3c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
                     </uix:NClick.Target>
@@ -365,55 +553,19 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NClick>
-                  <Sequence DisplayName="최적 경로 | Sequence" sap:VirtualizedContainerService.HintSize="541.6,591.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="최적 경로 | Sequence" sap:VirtualizedContainerService.HintSize="688,757.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="변수 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="479.2,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
-                      <ui:MultipleAssign.AssignOperations>
-                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl최적출근]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl최적퇴근]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl최적검증]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                        </scg:List>
-                      </ui:MultipleAssign.AssignOperations>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </ui:MultipleAssign>
-                    <Sequence sap2010:Annotation.AnnotationText="dbl최적출근" DisplayName="최적 경로 출근거리 | Sequence" sap:VirtualizedContainerService.HintSize="479.2,88" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <Sequence sap2010:Annotation.AnnotationText="dbl최적출근" DisplayName="최적 경로 출근거리 | Sequence" sap:VirtualizedContainerService.HintSize="480,373.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="str최적출근" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
@@ -472,7 +624,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
                     </Sequence>
-                    <Sequence sap2010:Annotation.AnnotationText="dbl최적퇴근" DisplayName="최적 경로 퇴근거리 | Sequence" sap:VirtualizedContainerService.HintSize="479.2,88" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence sap2010:Annotation.AnnotationText="dbl최적퇴근" DisplayName="최적 경로 퇴근거리 | Sequence" sap:VirtualizedContainerService.HintSize="480,88" sap2010:WorkflowViewState.IdRef="Sequence_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -523,7 +675,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
                     </Sequence>
-                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="dbl최적검증" DisplayName="최적 경로 검증거리 | Multiple Assign" sap:VirtualizedContainerService.HintSize="479.2,80.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="dbl최적검증" DisplayName="최적 경로 검증거리 | Multiple Assign" sap:VirtualizedContainerService.HintSize="480,173.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -531,51 +683,7 @@
                               <OutArgument x:TypeArguments="x:Double">[dbl최적검증]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">[(dbl최적출근+dbl최적퇴근)/2]</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                        </scg:List>
-                      </ui:MultipleAssign.AssignOperations>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </ui:MultipleAssign>
-                  </Sequence>
-                  <Sequence DisplayName="최단 경로 | Sequence" sap:VirtualizedContainerService.HintSize="541.6,591.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="변수 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="479.2,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
-                      <ui:MultipleAssign.AssignOperations>
-                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl최단출근]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl최단퇴근]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl최단검증]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round((dbl최적출근+dbl최적퇴근)/2, 2)]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                         </scg:List>
@@ -584,10 +692,18 @@
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:MultipleAssign>
-                    <Sequence sap2010:Annotation.AnnotationText="dbl최단출근" DisplayName="최단 경로 출근거리 | Sequence" sap:VirtualizedContainerService.HintSize="479.2,88" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  </Sequence>
+                  <Sequence DisplayName="최단 경로 | Sequence" sap:VirtualizedContainerService.HintSize="688,472" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence sap2010:Annotation.AnnotationText="dbl최단출근" DisplayName="최단 경로 출근거리 | Sequence" sap:VirtualizedContainerService.HintSize="480,88" sap2010:WorkflowViewState.IdRef="Sequence_8">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -645,7 +761,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NGetText>
-                      <Assign DisplayName="dbl최단출근 | Assign" sap:VirtualizedContainerService.HintSize="387.2,49.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign DisplayName="dbl최단출근 | Assign" sap:VirtualizedContainerService.HintSize="387.2,48" sap2010:WorkflowViewState.IdRef="Assign_3">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Double">[dbl최단출근]</OutArgument>
                         </Assign.To>
@@ -660,7 +776,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
                     </Sequence>
-                    <Sequence sap2010:Annotation.AnnotationText="dbl최단퇴근" DisplayName="최단 경로 퇴근거리 | Sequence" sap:VirtualizedContainerService.HintSize="479.2,88" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <Sequence sap2010:Annotation.AnnotationText="dbl최단퇴근" DisplayName="최단 경로 퇴근거리 | Sequence" sap:VirtualizedContainerService.HintSize="480,88" sap2010:WorkflowViewState.IdRef="Sequence_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -696,7 +812,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NGetText>
-                      <Assign DisplayName="dbl최단퇴근 | Assign" sap:VirtualizedContainerService.HintSize="387.2,49.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign DisplayName="dbl최단퇴근 | Assign" sap:VirtualizedContainerService.HintSize="387.2,48" sap2010:WorkflowViewState.IdRef="Assign_4">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Double">[dbl최단퇴근]</OutArgument>
                         </Assign.To>
@@ -711,7 +827,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
                     </Sequence>
-                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="dbl최단검증" DisplayName="최단 경로 검증거리 | Multiple Assign" sap:VirtualizedContainerService.HintSize="479.2,80.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="dbl최단검증" DisplayName="최단 경로 검증거리 | Multiple Assign" sap:VirtualizedContainerService.HintSize="480,173.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -719,53 +835,7 @@
                               <OutArgument x:TypeArguments="x:Double">[dbl최단검증]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">[(dbl최단출근+dbl최단퇴근)/2]</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                        </scg:List>
-                      </ui:MultipleAssign.AssignOperations>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </ui:MultipleAssign>
-                  </Sequence>
-                  <Sequence sap2010:Annotation.AnnotationText="1) 대중교통의 전체 리스트 추출&#xA;2) 가장 시간이 적게 소요되는 항목의 시간, 교통비 추출&#xA;3) 2)의 항목의 출퇴근시간 평균, 교통피 평균 산출" DisplayName="대중교통 | Sequence" sap:VirtualizedContainerService.HintSize="541.6,109.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="변수 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="542.4,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
-                      <ui:MultipleAssign.AssignOperations>
-                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl대중교통출근]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl대중교통퇴근]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:Double">[dbl최단검증]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">0</InArgument>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round((dbl최단출근+dbl최단퇴근)/2, 2)]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                         </scg:List>
@@ -774,12 +844,33 @@
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:MultipleAssign>
-                    <Sequence DisplayName="대중교통 출근거리, 금액 | Sequence" sap:VirtualizedContainerService.HintSize="542.4,522.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  </Sequence>
+                  <Sequence sap2010:Annotation.AnnotationText="1) 대중교통의 전체 리스트 추출&#xA;2) 가장 시간이 적게 소요되는 항목의 시간, 교통비 추출&#xA;3) 2)의 항목의 출퇴근시간 평균, 교통피 평균 산출" DisplayName="대중교통 | Sequence" sap:VirtualizedContainerService.HintSize="688,1424" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 대중교통" sap:VirtualizedContainerService.HintSize="542.4,56.8" sap2010:WorkflowViewState.IdRef="NClick_23" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="160, 498, 87, 65" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='transittab' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='transittab' tag='A' type='' class='transit' aaname='' /&gt;" Guid="c55e1f1b-8952-4c31-9a85-b0b6c017b354" InformativeScreenshot="64fa288435b0fab550cb47d7387e0152.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <Sequence DisplayName="대중교통 출근거리, 금액 추출 | Sequence" sap:VirtualizedContainerService.HintSize="542.4,509.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
                       <Sequence.Variables>
-                        <Variable x:TypeArguments="x:String" Name="str대중교통출근금액" />
+                        <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -787,17 +878,6 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 대중교통" sap:VirtualizedContainerService.HintSize="480,56.8" sap2010:WorkflowViewState.IdRef="NClick_23" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="160, 498, 87, 65" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='transittab' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='transittab' tag='A' type='' class='transit' aaname='' /&gt;" Guid="c55e1f1b-8952-4c31-9a85-b0b6c017b354" InformativeScreenshot="64fa288435b0fab550cb47d7387e0152.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
-                        </uix:NClick.Target>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </uix:NClick>
                       <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '출발/도착 순서 바꾸기'" sap:VirtualizedContainerService.HintSize="480,56.8" sap2010:WorkflowViewState.IdRef="NClick_24" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="443, 398, 45, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='info.route.searchBox.change' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='info.route.searchBox.change' tag='A' type='' class='btn_roadsearch routechange' aaname='출발/도착 순서 바꾸기' check:innerText='출발/도착 순서 바꾸기' /&gt;" Guid="d0f4b9c2-8fdb-4904-8040-0d792d04a229" InformativeScreenshot="1423640bc953cf52cbfe7f2bb5bc974f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
@@ -809,41 +889,32 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NClick>
-                      <uix:NGetText DisplayName="Get Text str대중교통출근" sap:VirtualizedContainerService.HintSize="480,56.8" sap2010:WorkflowViewState.IdRef="NGetText_17" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" TextString="[str대중교통출근]" Version="V3">
-                        <uix:NGetText.Target>
-                          <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="314, 679, 49, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='19.3km' class='num' parentid='info.flagsearch' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='num' parentid='info.flagsearch' tag='SPAN' type='' /&gt;" Guid="a6af16c3-eb16-4df2-b737-5b5acff55970" InformativeScreenshot="fbb92923ea94e054317901693efb25ef.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                <uix:Target DesignTimeRectangle="428, 679, 23, 23" FullSelectorArgument="&lt;webctrl class='detail' parentid='info.flagsearch' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl class='detail' parentid='info.flagsearch' tag='A' type='' aaname='' /&gt;" Guid="5bc292ba-ef0b-41c9-b884-67978005df08" SearchSteps="Selector, FuzzySelector" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NGetText.Target>
+                      <uix:NExtractData sap2010:Annotation.AnnotationText="0 : 시간&#xA;1 : 도보환승요금거리" AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="대중교통 정보 추출 | Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='시간'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='도보환승요금거리'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="480,100.8" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
+                        <uix:NExtractData.Target>
+                          <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="9, -106, 467, 2692" DesignTimeScaleFactor="1.25" ElementType="List" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul' parentid='info.flagsearch' tag='UL' /&gt;" Guid="77deb660-ce20-4e0a-9d7a-3fe00f843c5b" InformativeScreenshot="0e65f935107839d88b5c9459cb093226.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                        </uix:NExtractData.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NExtractData>
+                      <ui:SortDataTable ColumnName="{x:Null}" DataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="오름차순 정렬 | Sort Data Table" sap:VirtualizedContainerService.HintSize="480,56.8" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[ExtractDataTable]" SortOrder="Ascending">
+                        <ui:SortDataTable.ColumnIndex>
+                          <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+                            <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="0" />
+                          </InArgument>
+                        </ui:SortDataTable.ColumnIndex>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </uix:NGetText>
-                      <uix:NGetText DisplayName="Get Text str대중교통출근금액" sap:VirtualizedContainerService.HintSize="480,56.8" sap2010:WorkflowViewState.IdRef="NGetText_19" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" TextString="[str대중교통출근금액]" Version="V3">
-                        <uix:NGetText.Target>
-                          <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="239, 679, 76, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='요금 1,650원' parentid='info.flagsearch' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='info.flagsearch' tag='SPAN' type='' class='' /&gt;" Guid="e3b68027-71ce-4bad-81a8-8047b23e00ee" InformativeScreenshot="9951a06d1457ad0e90daccd576227954.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                <uix:Target DesignTimeRectangle="428, 679, 23, 23" FullSelectorArgument="&lt;webctrl class='detail' parentid='info.flagsearch' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl class='detail' parentid='info.flagsearch' tag='A' type='' aaname='' /&gt;" Guid="53ae71d3-ac5e-4cb8-9ae0-d6a65fdb0107" SearchSteps="Selector, FuzzySelector" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NGetText.Target>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </uix:NGetText>
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="480,172.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                      </ui:SortDataTable>
+                      <ui:MultipleAssign DisplayName="추출값 형변환(str -&gt; dbl) | Multiple Assign" sap:VirtualizedContainerService.HintSize="480,172.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
@@ -851,7 +922,7 @@
                                 <OutArgument x:TypeArguments="x:Double">[dbl대중교통출근]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(str대중교통출근.Replace("km", ""))]</InArgument>
+                                <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(ExtractDataTable.Rows(0)("도보환승요금거리").ToString.Split("원")(1).Replace("km", ""))]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
@@ -859,14 +930,23 @@
                                 <OutArgument x:TypeArguments="x:Double">[dbl대중교통출근금액]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(str대중교통출근금액.Replace("요금", "").Replace(",", "").Replace("원", "").Trim)]</InArgument>
+                                <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(ExtractDataTable.Rows(0)("도보환승요금거리").ToString.Split("요금 ")(1).Split("원")(0).Replace(",", ""))]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                           </scg:List>
                         </ui:MultipleAssign.AssignOperations>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </ui:MultipleAssign>
                     </Sequence>
-                    <Sequence DisplayName="대중교통 퇴근거리, 금액 | Sequence" sap:VirtualizedContainerService.HintSize="542.4,465.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <Sequence DisplayName="대중교통 퇴근거리, 금액 | Sequence" sap:VirtualizedContainerService.HintSize="542.4,509.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
+                      </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -884,57 +964,48 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NClick>
-                      <uix:NGetText DisplayName="Get Text str대중교통퇴근" sap:VirtualizedContainerService.HintSize="480,56.8" sap2010:WorkflowViewState.IdRef="NGetText_18" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" TextString="[str대중교통퇴근]" Version="V3">
-                        <uix:NGetText.Target>
-                          <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="314, 679, 49, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='19.8km' class='num' parentid='info.flagsearch' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='num' parentid='info.flagsearch' tag='SPAN' type='' /&gt;" Guid="e3c4804a-669a-4637-a9e4-0da832776f7e" InformativeScreenshot="29aa15220caaabe839f45304a63930e7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                <uix:Target DesignTimeRectangle="428, 679, 23, 23" FullSelectorArgument="&lt;webctrl class='detail' parentid='info.flagsearch' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl class='detail' parentid='info.flagsearch' tag='A' type='' aaname='' /&gt;" Guid="c75dd1e6-dc70-4854-839a-07a331f4b512" SearchSteps="Selector, FuzzySelector" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NGetText.Target>
+                      <uix:NExtractData sap2010:Annotation.AnnotationText="0 : 시간&#xA;1 : 도보환승요금거리" AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="대중교통 정보 추출 | Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='시간'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='도보환승요금거리'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="480,100.8" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" Version="V3">
+                        <uix:NExtractData.Target>
+                          <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="9, -106, 467, 2692" DesignTimeScaleFactor="1.25" ElementType="List" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul' parentid='info.flagsearch' tag='UL' /&gt;" Guid="77deb660-ce20-4e0a-9d7a-3fe00f843c5b" InformativeScreenshot="0e65f935107839d88b5c9459cb093226.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                        </uix:NExtractData.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NExtractData>
+                      <ui:SortDataTable ColumnName="{x:Null}" DataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="오름차순 정렬 | Sort Data Table" sap:VirtualizedContainerService.HintSize="480,56.8" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Ascending" OutputDataTable="[ExtractDataTable]" SortOrder="Ascending">
+                        <ui:SortDataTable.ColumnIndex>
+                          <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+                            <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="0" />
+                          </InArgument>
+                        </ui:SortDataTable.ColumnIndex>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </uix:NGetText>
-                      <uix:NGetText DisplayName="Get Text str대중교통퇴근금액" sap:VirtualizedContainerService.HintSize="480,56.8" sap2010:WorkflowViewState.IdRef="NGetText_20" ScopeIdentifier="324e8de0-2ac7-446d-8484-793167c3d57e" TextString="[str대중교통퇴근금액]" Version="V3">
-                        <uix:NGetText.Target>
-                          <uix:TargetAnchorable BrowserURL="https://map.kakao.com/" DesignTimeRectangle="225, 679, 75, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='요금 2,800원' parentid='info.flagsearch' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='info.flagsearch' tag='SPAN' type='' class='' /&gt;" Guid="b1dcc39a-74e7-4630-a3da-7172309488cc" InformativeScreenshot="bbaa47c4537208b287049ac99ec1bd9b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='카카오맵' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                <uix:Target DesignTimeRectangle="428, 679, 23, 23" FullSelectorArgument="&lt;webctrl class='detail' parentid='info.flagsearch' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl class='detail' parentid='info.flagsearch' tag='A' type='' aaname='' /&gt;" Guid="3ecfae48-e3ff-462c-a0c8-0dbaa0d49223" SearchSteps="Selector, FuzzySelector" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NGetText.Target>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </uix:NGetText>
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="480,172.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+                      </ui:SortDataTable>
+                      <ui:MultipleAssign DisplayName="추출값 형변환(str -&gt; dbl) | Multiple Assign" sap:VirtualizedContainerService.HintSize="480,172.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
                               <ui:AssignOperation.To>
                                 <OutArgument x:TypeArguments="x:Double">[dbl대중교통퇴근]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(str대중교통퇴근.Replace("km", ""))]</InArgument>
+                                <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(ExtractDataTable.Rows(0)("도보환승요금거리").ToString.Split("원")(1).Replace("km", ""))]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">
                               <ui:AssignOperation.To>
                                 <OutArgument x:TypeArguments="x:Double">[dbl대중교통퇴근금액]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(str대중교통퇴근금액.Replace("요금", "").Replace(",", "").Replace("원", "").Trim)]</InArgument>
+                                <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(ExtractDataTable.Rows(0)("도보환승요금거리").ToString.Split("요금 ")(1).Split("원")(0).Replace(",", ""))]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                           </scg:List>
@@ -955,7 +1026,7 @@
                               <OutArgument x:TypeArguments="x:Double">[dbl대중교통검증]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">[(dbl대중교통출근+dbl대중교통퇴근)/2]</InArgument>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round((dbl대중교통출근+dbl대중교통퇴근)/2, 2)]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
@@ -963,7 +1034,7 @@
                               <OutArgument x:TypeArguments="x:Double">[dbl대중교통금액]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">[(dbl대중교통출근금액+dbl대중교통퇴근금액)/2]</InArgument>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round((dbl대중교통출근금액+dbl대중교통퇴근금액)/2, 2)]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                         </scg:List>
@@ -984,12 +1055,12 @@
             </uix:NApplicationCard.TargetApp>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </uix:NApplicationCard>
-          <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="수행결과 : 성공" ArrayRow="[{str직번, str현소속, str직책, str성명, str거주지주소, str검증도착지, dbl최적출근.ToString, dbl최적퇴근.ToString, dbl최단검증.ToString, dbl최단출근.ToString, dbl최단퇴근.ToString, dbl최단검증.ToString, dbl대중교통검증.ToString, dbl대중교통금액.ToString+&quot;원&quot;, &quot;성공&quot;}]" DataTable="[io_dtEmployeeList]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="353.6,242.4" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+          <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="수행결과 : 성공" ArrayRow="[{str직번, str현소속, str직책, str성명, str거주지주소, str검증도착지, dbl최적출근.ToString, dbl최적퇴근.ToString, dbl최단검증.ToString, dbl최단출근.ToString, dbl최단퇴근.ToString, dbl최단검증.ToString, dbl대중교통검증.ToString, dbl대중교통금액.ToString+&quot;원&quot;, &quot;성공&quot;}]" DataTable="[io_dtEmployeeList]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="784,242.4" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -999,10 +1070,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="422.4,524.8" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="849.6,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -1024,6 +1095,34 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:AddDataRow>
               <Throw DisplayName="Throw ★ 예외처리" Exception="[new BusinessRuleException(&quot;⛔직번 &quot; + in_TransactionItem.SpecificContent(&quot;직번&quot;).ToString + &quot; 항목을 처리할 수 없습니다. &quot; + exception.Message)]" sap:VirtualizedContainerService.HintSize="353.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="849.6,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="416,403.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="수행결과 : 실패" ArrayRow="[{str직번, str현소속, str직책, str성명, str거주지주소, str검증도착지, dbl최적출근.ToString, dbl최적퇴근.ToString, dbl최단검증.ToString, dbl최단출근.ToString, dbl최단퇴근.ToString, dbl최단검증.ToString, dbl대중교통검증.ToString, dbl대중교통금액.ToString+&quot;원&quot;, &quot;실패&quot;}]" DataTable="[io_dtEmployeeList]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="353.6,251.2" sap2010:WorkflowViewState.IdRef="AddDataRow_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:AddDataRow>
+              <Throw DisplayName="Throw ★ 예외처리" Exception="[new SelectorNotFoundException(&quot;⛔직번 &quot; + in_TransactionItem.SpecificContent(&quot;직번&quot;).ToString + &quot; 항목을 처리할 수 없습니다. &quot; + exception.Message)]" sap:VirtualizedContainerService.HintSize="353.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_3" />
             </Sequence>
           </ActivityAction>
         </Catch>
