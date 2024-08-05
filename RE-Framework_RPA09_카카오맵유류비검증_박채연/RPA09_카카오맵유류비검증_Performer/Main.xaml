@@ -279,7 +279,7 @@
           <Transition.To>
             <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="//실질적으로 반복 작업을 수행" DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="230.4,101.6" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
-                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="581.6,2169.6" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="581.6,2171.2" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -287,13 +287,13 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="541.6,732.8" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="541.6,734.4" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap2010:Annotation.AnnotationText="//BusinessException 초기화" DisplayName="Assign BusinessException" sap:VirtualizedContainerService.HintSize="479.2,144" sap2010:WorkflowViewState.IdRef="Assign_25">
+                      <Assign sap2010:Annotation.AnnotationText="//BusinessException 초기화" DisplayName="Assign BusinessException" sap:VirtualizedContainerService.HintSize="479.2,144.8" sap2010:WorkflowViewState.IdRef="Assign_25">
                         <Assign.To>
                           <OutArgument x:TypeArguments="ui:BusinessRuleException">[BusinessException]</OutArgument>
                         </Assign.To>
@@ -306,7 +306,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
-                      <Assign DisplayName="수행기록 | intTotalCnt +1 처리 | Assign" sap:VirtualizedContainerService.HintSize="479.2,112.8" sap2010:WorkflowViewState.IdRef="Assign_28">
+                      <Assign DisplayName="수행기록 | intTotalCnt +1 처리 | Assign" sap:VirtualizedContainerService.HintSize="479.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_28">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Int32">[intTotalCnt]</OutArgument>
                         </Assign.To>
@@ -587,9 +587,9 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>[SystemException IsNot Nothing]</Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="//과제 수행에 앞서 준비 설정&#xA;&#xA;1. SystemException 초기화&#xA;2. Config 읽어서 Dictionary 만들기&#xA;3. 변수 선언 및 초기화&#xA;4. 사전 준비 작업" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="253.6,169.6" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="//과제 수행에 앞서 준비 설정&#xA;&#xA;1. SystemException 초기화&#xA;2. Config 읽어서 Dictionary 만들기&#xA;3. 변수 선언 및 초기화&#xA;4. 사전 준비 작업" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="782.4,3479.2" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
-                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="737.6,2952" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="737.6,2982.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -597,7 +597,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="700.8,2443.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="700.8,2473.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -617,7 +617,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </Assign>
-                              <If sap2010:Annotation.AnnotationText="// 과제 수행 시 한번만 하는 작업 == Config라는 변수에 값이 없다면" Condition="[Config is Nothing]" DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="638.4,1689.6" sap2010:WorkflowViewState.IdRef="If_1">
+                              <If sap2010:Annotation.AnnotationText="// 과제 수행 시 한번만 하는 작업 == Config라는 변수에 값이 없다면" Condition="[Config is Nothing]" DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="638.4,1720" sap2010:WorkflowViewState.IdRef="If_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -626,7 +626,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence sap2010:Annotation.AnnotationText="// 한번만 하는 작업들은 여기에&#xA;// TransactionDT 생성 등" DisplayName="First run" sap:VirtualizedContainerService.HintSize="604.8,1463.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                  <Sequence sap2010:Annotation.AnnotationText="// 한번만 하는 작업들은 여기에&#xA;// TransactionDT 생성 등" DisplayName="First run" sap:VirtualizedContainerService.HintSize="604.8,1493.6" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -678,7 +678,10 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:AddLogFields>
-                                    <Sequence DisplayName="변수 초기화 | Sequence" sap:VirtualizedContainerService.HintSize="542.4,649.6" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                    <Sequence DisplayName="변수 초기화 | Sequence" sap:VirtualizedContainerService.HintSize="542.4,680" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="scg:List(x:String)" Name="listFail" />
+                                      </Sequence.Variables>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -706,7 +709,7 @@
                                           </scg:List>
                                         </ui:MultipleAssign.AssignOperations>
                                       </ui:MultipleAssign>
-                                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="intTotalCnt, intSuccessCnt, intFailCnt" DisplayName="RPA 수행기록 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="480,243.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="intTotalCnt, intSuccessCnt, intFailCnt, listFail" DisplayName="RPA 수행기록 초기화 | Multiple Assign" sap:VirtualizedContainerService.HintSize="480,273.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                                         <ui:MultipleAssign.AssignOperations>
                                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -731,6 +734,14 @@
                                               </ui:AssignOperation.To>
                                               <ui:AssignOperation.Value>
                                                 <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="scg:List(x:String)">[listFail]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
                                               </ui:AssignOperation.Value>
                                             </ui:AssignOperation>
                                           </scg:List>
@@ -928,27 +939,13 @@
                                       </ueab:ExcelProcessScopeX>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Mail\02_SMTP_SendMail_Result.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="Mail\02_SMTP_SendMail_Result.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_strReciever">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;MailTo&quot;).ToString" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strResultFile" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intTotalCnt">
-                                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intTotalCnt" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intSuccessCnt">
-                                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intSuccessCnt" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intFailCnt">
-                                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intFailCnt" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtEmployeeList">
-                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtEmployeeList" />
-                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_strReciever">[Config("MailTo").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_strResultFile">[strResultFile]</InArgument>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intTotalCnt">[intTotalCnt]</InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intSuccessCnt">[intSuccessCnt]</InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intFailCnt">[intFailCnt]</InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtEmployeeList">[dtEmployeeList]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="353.6,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">

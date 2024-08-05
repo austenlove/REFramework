@@ -12,6 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "listFail&Sequence_37",
         "intTotalCnt&StateMachine_1",
         "intSuccessCnt&StateMachine_1",
         "intFailCnt&StateMachine_1",
