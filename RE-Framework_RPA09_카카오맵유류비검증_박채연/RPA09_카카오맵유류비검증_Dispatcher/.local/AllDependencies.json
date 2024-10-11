@@ -21474,15 +21474,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Park\\.nuget\\packages\\": {}
+    "C:\\Users\\dhkim\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "RPA09_카카오맵유류비검증_Dispatcher",
       "projectName": "RPA09_카카오맵유류비검증_Dispatcher",
-      "projectPath": "C:\\Users\\Park\\Documents\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Dispatcher\\.local",
-      "packagesPath": "C:\\Users\\Park\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Park\\Documents\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Dispatcher\\.local"
+      "projectPath": "C:\\Users\\dhkim\\OneDrive\\바탕 화면\\문서\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Dispatcher\\.local",
+      "packagesPath": "C:\\Users\\dhkim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dhkim\\OneDrive\\바탕 화면\\문서\\REFramework\\RE-Framework_RPA09_카카오맵유류비검증_박채연\\RPA09_카카오맵유류비검증_Dispatcher\\.local"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -21513,7 +21513,7 @@
             "version": "[24.10.0, 24.10.0]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\Park\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\dhkim\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
