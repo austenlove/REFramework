@@ -31,12 +31,15 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "SystemException&Sequence_1",
-        "BusinessException&Sequence_1",
         "dtExtracted&Sequence_1",
         "intTotalCnt&Sequence_1",
         "intSuccessCnt&Sequence_1",
         "intFailCnt&Sequence_1",
+        "BusinessException&Sequence_1",
+        "SystemException&Sequence_1",
+        "qi_inProgress&Sequence_16",
+        "qi_new&Sequence_16",
+        "queueItem&Sequence_24",
         "strRef&Sequence_5"
       ],
       "ArgumentsSectionElementsOrder": [],
