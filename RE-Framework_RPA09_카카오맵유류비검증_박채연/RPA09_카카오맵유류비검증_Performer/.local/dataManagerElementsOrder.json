@@ -152,6 +152,8 @@
       "Path": "Jobs/01_CollectData.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "str검증도착지명&Sequence_22",
+        "str검증거주지주소&Sequence_2",
         "str최단퇴근거리&Sequence_2",
         "str최단출근거리&Sequence_2",
         "str최적퇴근거리&Sequence_2",
