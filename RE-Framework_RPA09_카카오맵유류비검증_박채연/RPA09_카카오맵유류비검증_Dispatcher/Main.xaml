@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1088,3377.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1172,3377.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -165,7 +165,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <Sequence sap2010:Annotation.AnnotationText="이전 큐 상태변환&#xD;&#xA;- 새로만들기 → 성공&#xD;&#xA;- 진행중 → 성공" DisplayName="Sequence | 큐 초기화" sap:VirtualizedContainerService.HintSize="737.6,116.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence sap2010:Annotation.AnnotationText="이전 큐 상태변환&#xA;- 새로만들기 → 성공&#xA;- 진행중 → 성공" DisplayName="Sequence | 큐 초기화" sap:VirtualizedContainerService.HintSize="737.6,116.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="qi_inProgress" />
         <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="qi_new" />
@@ -283,7 +283,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:GetQueueItems>
-      <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="성공 상태로 변환" DisplayName="While | 새로만들기 큐 가져와서 상태변환" sap:VirtualizedContainerService.HintSize="449.6,626.4" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+      <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="성공 상태로 변환" Condition="[qi_new.Count &gt; 0]" DisplayName="While | 새로만들기 큐 가져와서 상태변환" sap:VirtualizedContainerService.HintSize="449.6,626.4" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
         <ui:InterruptibleWhile.Body>
           <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,480.8" sap2010:WorkflowViewState.IdRef="Sequence_24">
             <Sequence.Variables>
@@ -305,9 +305,6 @@
             </ui:SetTransactionStatus>
           </Sequence>
         </ui:InterruptibleWhile.Body>
-        <ui:InterruptibleWhile.Condition>
-          <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="qi_new.Count &gt; 0" />
-        </ui:InterruptibleWhile.Condition>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -333,7 +330,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="dtExtracted 추출" AutoSave="False" CreateNewFile="False" DisplayName="Raw Data 읽어오기 | Excel Application Scope" sap:VirtualizedContainerService.HintSize="675.2,376" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="Data\유류비검증_Dispatcher_temp.xlsx">
+      <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="dtExtracted 추출" AutoSave="False" CreateNewFile="False" DisplayName="Raw Data 읽어오기 | Excel Application Scope" sap:VirtualizedContainerService.HintSize="675.2,376" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="Data\유류비검증_Dispatcher_temp.xlsx">
         <ui:ExcelApplicationScope.Body>
           <ActivityAction x:TypeArguments="ui:WorkbookApplication">
             <ActivityAction.Argument>
